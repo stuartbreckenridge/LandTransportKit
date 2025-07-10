@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "181F8AA7-1F2F-43FD-8ABD-370688C51244",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:LandTransportKit.xcodeproj",
+        "identifier" : "17C531B72E125EDF00A8CDA2",
+        "name" : "LandTransportKitTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -22,6 +22,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		174688402E1F40AB00A941FE /* LandTransportKit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = LandTransportKit.xctestplan; sourceTree = "<group>"; };
 		175112932E1EBFCF00957686 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		175112952E1EC52000957686 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		17C531AD2E125EDF00A8CDA2 /* LandTransportKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LandTransportKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +73,7 @@
 		17C531A32E125EDF00A8CDA2 = {
 			isa = PBXGroup;
 			children = (
+				174688402E1F40AB00A941FE /* LandTransportKit.xctestplan */,
 				175112932E1EBFCF00957686 /* README.md */,
 				175112952E1EC52000957686 /* Package.swift */,
 				175112972E1EC64100957686 /* Sources */,
