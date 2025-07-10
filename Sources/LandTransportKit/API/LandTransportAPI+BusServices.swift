@@ -30,9 +30,9 @@ public extension LandTransportAPI {
         urlRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
         
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        let decodedData = try JSONDecoder().decode([BusService].self, from: data)
-        services.append(contentsOf: decodedData)
-        if decodedData.count == 500 {
+        let decodedData = try JSONDecoder().decode(BusServices.self, from: data)
+        services.append(contentsOf: decodedData.value)
+        if decodedData.value.count == 500 {
             return try await downloadBusServices(services, skip: skip + 500)
         } else {
             return services

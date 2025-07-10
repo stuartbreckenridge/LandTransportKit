@@ -7,27 +7,54 @@
 
 import Foundation
 
-/// A representation of a public bus service.
+
+/// A collection of public bus services.
 ///
-/// `BusService` contains key information about a specific bus route, including its operator,
-/// direction, category, origin and destination, and frequency details for peak and off-peak times.
+/// This structure represents the decoded result of a list of bus services, typically returned from a transport-related API.
+/// Each element in the `value` array is a `BusService` containing detailed information about a specific bus route.
+///
+/// - Note: This type conforms to `Codable` and `Sendable`.
+///
+/// Example usage:
+/// ```swift
+/// let busServices: BusServices = // decoded from JSON
+/// print(busServices.value.count)
+/// ```
+///
+/// - SeeAlso: `BusService`
+internal struct BusServices: Codable, Sendable {
+    
+    let value: [BusService]
+    
+}
+
+/// A public bus service.
+///
+/// This structure encapsulates information about a specific bus route, including its service number, operator, direction, route category, origin and destination codes, as well as frequency details for different time periods. Each property corresponds to a field typically provided by the Land Transport API.
 ///
 /// - Properties:
-///   - id: A unique identifier for the bus service, using the service number.
-///   - ServiceNo: The service number identifying the bus route.
-///   - Operator: The operator responsible for running the bus service.
-///   - Direction: The direction of the service (e.g., 1 or 2).
-///   - Category: The category of the service (e.g., "Express", "Trunk").
-///   - OriginCode: The code representing the starting point of the service.
-///   - DestinationCode: The code representing the end point of the service.
-///   - AM_Peak_Freq: The service frequency during the morning peak period (typically in minutes).
-///   - AM_Offpeak_Freq: The frequency during the morning off-peak period.
-///   - PM_Peak_Freq: The frequency during the evening peak period.
-///   - PM_Offpeak_Freq: The frequency during the evening off-peak period.
-///   - LoopDesc: A description of the loop, if the service operates in a loop.
-public struct BusService: Codable, Sendable {
+///   - ServiceNo: The unique identifier or number for the bus service.
+///   - Operator: The name of the operating company or authority for the bus service.
+///   - Direction: The direction or variant of the bus route (e.g., "1" for forward, "2" for return).
+///   - Category: The category of the bus service (e.g., "TRUNK", "FEEDER").
+///   - OriginCode: The code representing the starting bus stop of the service.
+///   - DestinationCode: The code representing the final bus stop of the service.
+///   - AM_Peak_Freq: The scheduled frequency of the service during the morning peak period.
+///   - AM_Offpeak_Freq: The scheduled frequency during the morning off-peak period.
+///   - PM_Peak_Freq: The scheduled frequency during the afternoon/evening peak period.
+///   - PM_Offpeak_Freq: The scheduled frequency during the afternoon/evening off-peak period.
+///   - LoopDesc: Description of the loop or deviation, if applicable; otherwise, an empty string.
+///
+/// - Note: This type conforms to `Codable` for encoding and decoding, and `Sendable` for safe use in concurrent contexts.
+///
+/// Example usage:
+/// ```swift
+/// let busService: BusService = // decoded from JSON
+/// print(busService.ServiceNo)
+/// ```
+public struct BusService: Codable, Sendable, Identifiable {
     
-    var id: String { ServiceNo }
+    public var id: String { ServiceNo }
     
     let ServiceNo: String
     let `Operator`: String
@@ -40,5 +67,4 @@ public struct BusService: Codable, Sendable {
     let PM_Peak_Freq: String
     let PM_Offpeak_Freq: String
     let LoopDesc: String
-    
 }
