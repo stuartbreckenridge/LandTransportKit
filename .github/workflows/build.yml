@@ -22,7 +22,7 @@ jobs:
       run: |
         brew install llvm
         mkdir -p .build/coverage
-        export BINARY=$(swift test --show-bin-path)/LandTransportKitTests.xctest/Contents/MacOS/PackageTests
+        export BINARY=$(swift test --show-bin-path)/LandTransportKitTests.xctest/Contents/MacOS/LandTransportKitTests
         xcrun llvm-cov export \
           -format=lcov \
           "$BINARY" \
@@ -30,7 +30,7 @@ jobs:
             > .build/coverage/coverage.lcov
 
     - name: Upload to Codecov
-      uses: codecov/codecov-action@v4
+      uses: codecov/codecov-action@v5
       with:
         files: .build/coverage/coverage.lcov
         token: ${{ secrets.CODECOV_TOKEN }}
