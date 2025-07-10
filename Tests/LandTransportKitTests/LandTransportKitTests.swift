@@ -35,7 +35,6 @@ struct LandTransportKitTests {
                     if arrival.NextBus.DestinationCode != "" {
                         #expect(arrival.NextBus.EstimatedArrival.count > 0)
                         let formatter = ISO8601DateFormatter()
-                        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
                         let date = formatter.date(from: arrival.NextBus.EstimatedArrival)
                         #expect(date != nil)
                         #expect(arrival.NextBus.Latitude.count > 0)
