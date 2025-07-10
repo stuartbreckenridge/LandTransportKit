@@ -20,6 +20,8 @@ jobs:
       run: swift test --enable-code-coverage
     - name: Install llvm (for llvm-cov)
       run: brew install llvm
+    - name: Add llvm to PATH
+      run: echo "/usr/local/opt/llvm/bin" >> $GITHUB_PATH
     - name: Upload Coverage Reports
       uses: maxep/spm-lcov-action@0.3.0 # Or your preferred coverage reporting action
       with:
