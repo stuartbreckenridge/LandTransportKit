@@ -20,14 +20,14 @@ jobs:
       run: swift test --enable-code-coverage
     - name: Convert coverage to lcov
       run: |
-        brew install llvm
-        mkdir -p .build/coverage
-        export BINARY=$(swift test --show-bin-path)/LandTransportKitTests.xctest/Contents/MacOS/LandTransportKitTests
+        BIN_PATH=$(swift test --show-bin-path)
+        BINARY=$(find "$BIN_PATH" -name LandTransportKitTests -type f)
         xcrun llvm-cov export \
           -format=lcov \
           "$BINARY" \
           -instr-profile .build/debug/codecov/default.profdata \
-            > .build/coverage/coverage.lcov
+          > .build/coverage/coverage.lcov
+  
 
     - name: Upload to Codecov
       uses: codecov/codecov-action@v5
