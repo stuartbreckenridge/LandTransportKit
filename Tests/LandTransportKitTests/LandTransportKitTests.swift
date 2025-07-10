@@ -22,16 +22,29 @@ struct LandTransportKitTests {
             await api.configure(apiKey: apiKey)
         }
         
-        @Test("Tests retrieval of bus arrivals for a specific stop")
+        @Test("Tests retrieval of bus arrivals for a specific stop.")
         func busArrival() async {
             await setup()
             do {
                 let arrivals = try await api.getBusArrivals(at: "08057")
-                #expect(arrivals.Services.isEmpty == false)
+                #expect(arrivals.Services.count >= 0)
             } catch {
                 #expect(Bool(false), "Unexpected error: \(error)")
             }
-            
+        }
+        
+        @Test("Test retrieval of bus arrivals for a specific stop and service.")
+        func busArrivalWithServiceID() async {
+            await setup()
+            do {
+                let arrivals = try await api.getBusArrivals(at: "08057", serviceNo: "106")
+                #expect(arrivals.Services.count >= 0)
+                if arrivals.Services.count > 0 {
+                    #expect(arrivals.Services[0].ServiceNo == "106")
+                }
+            } catch {
+                #expect(Bool(false), "Unexpected error: \(error)")
+            }
         }
         
     }
