@@ -46,6 +46,7 @@ struct LandTransportKitTests {
                         #expect(arrival.NextBus.Type == "BD" || arrival.NextBus.Type == "DD" || arrival.NextBus.Type == "SD")
                         #expect(arrival.NextBus.coordinate != nil)
                         #expect(arrival.NextBus.coordinate2D != nil)
+                        #expect(arrival.NextBus.Load == "LSD" || arrival.NextBus.Load == "SEA" || arrival.NextBus.Load == "SDA")
                     }
                 }
             } catch {

@@ -26,11 +26,7 @@ public struct BusArrivals: Codable, Sendable {
     
     public let BusStopCode: String
     public let Services: [Services]
-    
-    public init(BusStopCode: String, Services: [Services]) {
-        self.BusStopCode = BusStopCode
-        self.Services = Services
-    }
+
 }
 
 

@@ -47,11 +47,4 @@ public struct Services: Codable, Hashable, Equatable, Identifiable, Sendable {
     public let NextBus2: NextBus
     public let NextBus3: NextBus
     
-    public init(ServiceNo: String, Operator: String, NextBus: NextBus, NextBus2: NextBus, NextBus3: NextBus) {
-        self.ServiceNo = ServiceNo
-        self.Operator = Operator
-        self.NextBus = NextBus
-        self.NextBus2 = NextBus2
-        self.NextBus3 = NextBus3
-    }
 }

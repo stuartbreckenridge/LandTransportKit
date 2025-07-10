@@ -25,7 +25,7 @@ import CoreLocation
 /// - `Load`: A string describing the current occupancy level of the bus (e.g., "SEA" for seats available, "SDA" for standing available, "LSD" for limited standing).
 /// - `Feature`: Describes special features of the bus (e.g., "WAB" for wheelchair-accessible bus).
 /// - `Type`: The type of bus (e.g., "SD" for single deck, "DD" for double deck, "BD" for bendy).
-/// - `Monitored`: Indicates whether the bus is currently being monitored in real-time (1 for yes, 0 for no).
+/// - `Monitored`: Indicates whether the bus is currently being monitored in real-time (1 for yes, 0 for no (arrival estimate is based on schedule)).
 ///
 /// Computed Properties:
 /// - `coordinate`: The bus's location as a `CLLocation` object.
@@ -42,19 +42,6 @@ public struct NextBus: Codable, Sendable {
     public let Feature: String
     public let `Type`: String
     public let Monitored: Int
-    
-    public init(OriginCode: String, DestinationCode: String, EstimatedArrival: String, Latitude: String, Longitude: String, VisitNumber: String, Load: String, Feature: String, Monitored: Int, `Type`: String) {
-        self.OriginCode = OriginCode
-        self.DestinationCode = DestinationCode
-        self.EstimatedArrival = EstimatedArrival
-        self.Latitude = Latitude
-        self.Longitude = Longitude
-        self.VisitNumber = VisitNumber
-        self.Load = Load
-        self.Feature = Feature
-        self.Monitored = Monitored
-        self.`Type` = `Type`
-    }
     
     var coordinate: CLLocation? {
         if let lat = Double(Latitude), let lon = Double(Longitude) {
