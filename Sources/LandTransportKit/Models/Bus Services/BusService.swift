@@ -58,7 +58,7 @@ public struct BusService: Codable, Sendable, Identifiable {
     
     let ServiceNo: String
     let `Operator`: String
-    let Direction: String
+    let Direction: Int
     let Category: String
     let OriginCode: String
     let DestinationCode: String
