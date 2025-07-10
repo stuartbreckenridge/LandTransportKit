@@ -70,4 +70,22 @@ struct LandTransportKitTests {
         
     }
     
+    @Suite("Bus Service Test") struct BusServiceTest {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Get Bus Services")
+        func getBusServices() async throws {
+            let services = try await api.downloadBusServices()
+            #expect(services.count > 0)
+        }
+        
+    }
+    
 }

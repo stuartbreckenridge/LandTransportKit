@@ -9,11 +9,14 @@ import Foundation
 
 enum LandTransportEndpoints {
     case busArrivals
+    case busServices
     
     var url: URL {
         switch self {
         case .busArrivals:
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival")!
+        case .busServices:
+            return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/BusServices")!
         }
     }
 }
