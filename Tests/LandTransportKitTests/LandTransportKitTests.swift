@@ -82,6 +82,7 @@ struct LandTransportKitTests {
         
         @Test("Get Bus Services")
         func getBusServices() async throws {
+            await setup()
             let services = try await api.downloadBusServices()
             #expect(services.count > 0)
         }
