@@ -18,15 +18,13 @@ jobs:
       run: echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
     - name: Run tests
       run: swift test --enable-code-coverage
-    - name: Convert coverage to lcov
-      run: |
-        BINARY=$(find .build -type f -path "*/LandTransportKitTests.xctest/Contents/MacOS/LandTransportKitTests" | head -n 1)
-        xcrun llvm-cov export -format="lcov" \
-        "$BINARY" \
-        -instr-profile .build/debug/codecov/default.profdata \
-        > info.lcov
-    - name: Upload to Codecov
-      uses: codecov/codecov-action@v5
+    - name: Upload Coverage Reports
+      uses: maxep/spm-lcov-action@0.3.0 # Or your preferred coverage reporting action
       with:
-        files: info.lcov
-        token: ${{ secrets.CODECOV_TOKEN }}
+          output-file: ./coverage/lcov.info # Or your preferred output path
+    - name: Codecov
+      uses: codecov/codecov-action@v4
+      with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+    
+        
