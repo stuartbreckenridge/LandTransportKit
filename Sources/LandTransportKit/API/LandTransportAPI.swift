@@ -9,7 +9,7 @@ import Foundation
 
 public actor LandTransportAPI {
     
-    static let shared = LandTransportAPI()
+    public static let shared = LandTransportAPI()
     
     /// The API key used for authenticating requests to the Land Transport API.
     ///
