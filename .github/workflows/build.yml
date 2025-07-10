@@ -18,14 +18,8 @@ jobs:
       run: echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
     - name: Run tests
       run: swift test --enable-code-coverage
-    - name: Install llvm (for llvm-cov)
-      run: brew install llvm
-    - name: Add llvm to PATH
-      run: echo "/usr/local/opt/llvm/bin" >> $GITHUB_PATH
-    - name: Upload Coverage Reports
-      uses: maxep/spm-lcov-action@0.3.0 # Or your preferred coverage reporting action
-      with:
-          output-file: ./coverage/lcov.info # Or your preferred output path
+    - name: Generate Code Coverage
+      run: xcrun llvm-cov export -format="lcov" .build/debug/LandTransportKitPackageTests.xctest/Contents/MacOS/LandTransportKitPackageTests -instr-profile .build/debug/codecov/default.profdata > info.lcov
     - name: Codecov
       uses: codecov/codecov-action@v4
       with:
