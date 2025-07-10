@@ -56,12 +56,18 @@ public struct NextBus: Codable, Sendable {
         self.`Type` = `Type`
     }
     
-    var coordinate: CLLocation {
-        CLLocation(latitude: Double(Latitude)!, longitude: Double(Longitude)!)
+    var coordinate: CLLocation? {
+        if let lat = Double(Latitude), let lon = Double(Longitude) {
+            return CLLocation(latitude: lat, longitude: lon)
+        }
+        return nil
     }
     
-    var coordinate2D: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: Double(Latitude)!, longitude: Double(Longitude)!)
+    var coordinate2D: CLLocationCoordinate2D? {
+        if let lat = Double(Latitude), let lon = Double(Longitude) {
+            return CLLocationCoordinate2D(latitude: lat, longitude: lon)
+        }
+        return nil
     }
 
 }

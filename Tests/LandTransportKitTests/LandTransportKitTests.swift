@@ -28,6 +28,27 @@ struct LandTransportKitTests {
             do {
                 let arrivals = try await api.getBusArrivals(at: "08057")
                 #expect(arrivals.Services.count >= 0)
+                if arrivals.Services.count > 0 {
+                    let arrival = arrivals.Services[0]
+                    #expect(arrival.ServiceNo.count > 0)
+                    #expect(arrival.Operator.count > 0)
+                    if arrival.NextBus.DestinationCode != "" {
+                        #expect(arrival.NextBus.EstimatedArrival.count > 0)
+                        let formatter = ISO8601DateFormatter()
+                        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+                        let date = formatter.date(from: arrival.NextBus.EstimatedArrival)
+                        #expect(date != nil)
+                        #expect(arrival.NextBus.Latitude.count > 0)
+                        #expect(arrival.NextBus.Longitude.count > 0)
+                        #expect(arrival.NextBus.DestinationCode.count > 0)
+                        #expect(arrival.NextBus.Feature == "WAB" || arrival.NextBus.Feature == "")
+                        #expect(arrival.NextBus.Monitored == 0 || arrival.NextBus.Monitored == 1)
+                        #expect(arrival.NextBus.VisitNumber.count > 0)
+                        #expect(arrival.NextBus.Type == "BD" || arrival.NextBus.Type == "DD" || arrival.NextBus.Type == "SD")
+                        #expect(arrival.NextBus.coordinate != nil)
+                        #expect(arrival.NextBus.coordinate2D != nil)
+                    }
+                }
             } catch {
                 #expect(Bool(false), "Unexpected error: \(error)")
             }
