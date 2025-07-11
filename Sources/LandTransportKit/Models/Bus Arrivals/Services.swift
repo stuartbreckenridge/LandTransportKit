@@ -29,7 +29,7 @@ import Foundation
 ///  - seealso: ``LandTransportKit/NextBus``
 public struct Services: Codable, Hashable, Equatable, Identifiable, Sendable {
     
-    public var id: UUID = UUID()
+    public var id: UUID { UUID() }
     
     public static func == (lhs: Services, rhs: Services) -> Bool {
         return lhs.ServiceNo == rhs.ServiceNo
