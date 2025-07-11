@@ -15,16 +15,14 @@ public extension LandTransportAPI {
     ///
     /// This method performs two network requests:
     /// 1. It first fetches a JSON metadata endpoint to retrieve the signed download URL for the latest dataset.
-    /// 2. It then downloads the CSV file from the provided link.
+    /// 2. It then downloads the zipped  file from the provided link as `Data`.
     ///
-    /// - Returns: The raw CSV file data containing passenger volume statistics by bus stop.
+    /// - Returns: The raw zip file data containing passenger volume statistics by bus stop and the file name.
     /// - Throws: An error if the network request fails, the response cannot be decoded,
-    ///           or if the expected link to the CSV file is not found.
-    ///
-    /// The `AccountKey` header is added to both requests using the API key provided to `LandTransportAPI`.
+    ///           or if the expected link to the Zip file is not found.
     ///
     /// - Warning: This is a rate-limited API.
-    func downloadPassengerVolumeByBusStop() async throws -> Data {
+    func downloadPassengerVolumeByBusStop() async throws -> (Data, String) {
         var request = URLRequest(url: LandTransportEndpoints.passengerVolumeByBusStop.url)
         request.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
         
@@ -41,10 +39,11 @@ public extension LandTransportAPI {
             throw URLError(.cannotLoadFromNetwork)
         }
         
-        let csvRequest = URLRequest(url: URL(string: link)!)
+        let zipRequest = URLRequest(url: URL(string: link)!)
         
-        let (csvData, _) = try await URLSession.shared.data(for: csvRequest)
-        return csvData
+        let (zipData, _) = try await URLSession.shared.data(for: zipRequest)
+        
+        return (zipData, zipRequest.url!.lastPathComponent)
     }
     
 }

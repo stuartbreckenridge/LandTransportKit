@@ -138,17 +138,12 @@ struct LandTransportKitTests {
             await api.configure(apiKey: apiKey)
         }
         
-        @Test("Get Passenger Volume and Validate CSV Headers")
+        @Test("Get Passenger Volume and Validate Zip filename")
         func getPassengerVolumeByBusStop() async throws {
             await setup()
             do  {
-                let data = try await api.downloadPassengerVolumeByBusStop()
-                let csvString = String(data: data, encoding: .utf8)
-                #expect(csvString != nil)
-                
-                let lines = csvString!.components(separatedBy: .newlines).filter { !$0.isEmpty }
-                let header = lines[0]
-                #expect(header == "YEAR_MONTH,DAY_TYPE,TIME_PER_HOUR,PT_TYPE,PT_CODE,TOTAL_TAP_IN_VOLUME,TOTAL_TAP_OUT_VOLUME")
+                let (data, filename) = try await api.downloadPassengerVolumeByBusStop()
+                #expect(filename.hasSuffix(".zip"))
             } catch (let e as URLError) {
                 if e.userInfo["Reason"] as! String == "Rate Limited" {
                     print("Let this pass due to rate limiting.")
