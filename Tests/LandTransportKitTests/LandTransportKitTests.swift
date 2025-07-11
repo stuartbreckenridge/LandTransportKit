@@ -127,7 +127,7 @@ struct LandTransportKitTests {
         }
     }
     
-    @Suite("Passenger Volume By Bus Stop Test")
+    @Suite("Passenger Volume Tests")
     struct PassengerVolumeByBusStopTest {
         let api = LandTransportAPI.shared
         
@@ -138,7 +138,7 @@ struct LandTransportKitTests {
             await api.configure(apiKey: apiKey)
         }
         
-        @Test("Get Passenger Volume and Validate Zip filename")
+        @Test("Get passenger volume by bus stop, validate file name.")
         func getPassengerVolumeByBusStop() async throws {
             await setup()
             do  {
@@ -152,6 +152,52 @@ struct LandTransportKitTests {
                 #expect(Bool(false))
             }
         }
+        
+        @Test("Get passenger volume by origin/destination bus stop, validate file name.")
+        func getPassengerVolumeByOriginDestinationBusStop() async throws {
+            await setup()
+            do  {
+                let (data, filename) = try await api.downloadPassengerVolumeByOriginDestinationBusStop()
+                #expect(filename.hasSuffix(".zip"))
+            } catch (let e as URLError) {
+                if e.userInfo["Reason"] as! String == "Rate Limited" {
+                    print("Let this pass due to rate limiting.")
+                }
+            } catch {
+                #expect(Bool(false))
+            }
+        }
+        
+        @Test("Get passenger volume by train station, validate file name.")
+        func getPassengerVolumeByTrainStation() async throws {
+            await setup()
+            do  {
+                let (data, filename) = try await api.downloadPassengerVolumeByTrainStation()
+                #expect(filename.hasSuffix(".zip"))
+            } catch (let e as URLError) {
+                if e.userInfo["Reason"] as! String == "Rate Limited" {
+                    print("Let this pass due to rate limiting.")
+                }
+            } catch {
+                #expect(Bool(false))
+            }
+        }
+        
+        @Test("Get passenger volume by origin/destination train station, validate file name.")
+        func getPassengerVolumeByOriginDestinationTrainStation() async throws {
+            await setup()
+            do  {
+                let (data, filename) = try await api.downloadPassengerVolumeByOriginDestinationTrainStation()
+                #expect(filename.hasSuffix(".zip"))
+            } catch (let e as URLError) {
+                if e.userInfo["Reason"] as! String == "Rate Limited" {
+                    print("Let this pass due to rate limiting.")
+                }
+            } catch {
+                #expect(Bool(false))
+            }
+        }
+        
     }
     
 }
