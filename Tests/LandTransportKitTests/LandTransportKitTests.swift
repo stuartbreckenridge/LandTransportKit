@@ -109,4 +109,23 @@ struct LandTransportKitTests {
     }
     
     
+    @Suite("Bus Stop Test")
+    struct BusStopTest {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Get Bus Stops")
+        func getBusStops() async throws {
+            await setup()
+            let stops = try await api.downloadBusStops()
+            #expect(stops.count > 0)
+        }
+    }
+    
 }
