@@ -16,7 +16,7 @@ jobs:
         xcode-version: latest-stable
     - name: Set API Key
       run: echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
-    - name: Run tests
+    - name: Run Swift Tests
       run: swift test --enable-code-coverage
     - name: Generate Code Coverage
       run: xcrun llvm-cov export -format="lcov" .build/debug/LandTransportKitPackageTests.xctest/Contents/MacOS/LandTransportKitPackageTests -instr-profile .build/debug/codecov/default.profdata > info.lcov
