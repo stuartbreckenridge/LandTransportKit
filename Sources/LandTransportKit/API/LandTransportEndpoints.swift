@@ -12,6 +12,7 @@ enum LandTransportEndpoints {
     case busServices
     case busRoutes
     case busStops
+    case passengerVolumeByBusStop
     
     var url: URL {
         switch self {
@@ -23,6 +24,8 @@ enum LandTransportEndpoints {
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/BusRoutes")!
         case .busStops:
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/BusStops")!
+        case .passengerVolumeByBusStop:
+            return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/PV/Bus")!
         }
     }
 }

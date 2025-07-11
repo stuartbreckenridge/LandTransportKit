@@ -108,7 +108,6 @@ struct LandTransportKitTests {
         }
     }
     
-    
     @Suite("Bus Stop Test")
     struct BusStopTest {
         let api = LandTransportAPI.shared
@@ -125,6 +124,31 @@ struct LandTransportKitTests {
             await setup()
             let stops = try await api.downloadBusStops()
             #expect(stops.count > 0)
+        }
+    }
+    
+    @Suite("Passenger Volume By Bus Stop Test")
+    struct PassengerVolumeByBusStopTest {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Get Passenger Volume and Validate CSV Headers")
+        func getPassengerVolumeByBusStop() async throws {
+            await setup()
+            let data = try await api.downloadPassengerVolumeByBusStop()
+            
+            let csvString = String(data: data, encoding: .utf8)
+            #expect(csvString != nil)
+            let lines = csvString!.components(separatedBy: .newlines).filter { !$0.isEmpty }
+            // Validate header row
+            let header = lines[0]
+            #expect(header == "YEAR_MONTH,DAY_TYPE,TIME_PER_HOUR,PT_TYPE,PT_CODE,TOTAL_TAP_IN_VOLUME,TOTAL_TAP_OUT_VOLUME")
         }
     }
     
