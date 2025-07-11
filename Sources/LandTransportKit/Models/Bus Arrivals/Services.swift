@@ -13,7 +13,7 @@ import Foundation
 /// operating company, and the details for the next three arriving buses at a specific stop.
 ///
 /// - Properties:
-///   - id: A unique identifier for the service, equivalent to the service number.
+///   - id: A unique identifier.
 ///   - ServiceNo: The unique identifier or route number for the bus service.
 ///   - Operator: The code or name of the operating company for this service.
 ///   - NextBus: Information about the next arriving bus for this service.
@@ -29,9 +29,7 @@ import Foundation
 ///  - seealso: ``LandTransportKit/NextBus``
 public struct Services: Codable, Hashable, Equatable, Identifiable, Sendable {
     
-    public var id: String {
-        ServiceNo
-    }
+    public var id: UUID = UUID()
     
     public static func == (lhs: Services, rhs: Services) -> Bool {
         return lhs.ServiceNo == rhs.ServiceNo
