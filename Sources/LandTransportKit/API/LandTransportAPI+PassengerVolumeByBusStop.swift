@@ -22,19 +22,26 @@ public extension LandTransportAPI {
     ///           or if the expected link to the CSV file is not found.
     ///
     /// The `AccountKey` header is added to both requests using the API key provided to `LandTransportAPI`.
+    ///
+    /// - Warning: This is a rate-limited API.
     func downloadPassengerVolumeByBusStop() async throws -> Data {
         var request = URLRequest(url: LandTransportEndpoints.passengerVolumeByBusStop.url)
         request.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
         
-        let (jsonData, _) = try await URLSession.shared.data(for: request)
+        let (jsonData, response) = try await URLSession.shared.data(for: request)
+        if let httpResponse = response as? HTTPURLResponse {
+            if httpResponse.statusCode == 500 {
+                // Rate limited requests throw a 500 error.
+                throw URLError.init(.cannotLoadFromNetwork, userInfo: ["Reason" : "Rate Limited"])
+            }
+        }
         let decoded = try JSONDecoder().decode(PassengerVolumeByBusStop.self, from: jsonData)
         
-        guard let link = decoded.value.first else {
+        guard let link = decoded.value.first?.Link else {
             throw URLError(.cannotLoadFromNetwork)
         }
         
-        var csvRequest = URLRequest(url: URL(string: link.Link)!)
-        csvRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
+        let csvRequest = URLRequest(url: URL(string: link)!)
         
         let (csvData, _) = try await URLSession.shared.data(for: csvRequest)
         return csvData
