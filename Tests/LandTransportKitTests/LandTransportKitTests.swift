@@ -128,7 +128,7 @@ struct LandTransportKitTests {
     }
     
     @Suite("Passenger Volume Tests")
-    struct PassengerVolumeByBusStopTest {
+    struct PassengerVolumeTests {
         let api = LandTransportAPI.shared
         
         @Test("Set the API key")
@@ -142,7 +142,7 @@ struct LandTransportKitTests {
         func getPassengerVolumeByBusStop() async throws {
             await setup()
             do  {
-                let (data, filename) = try await api.downloadPassengerVolumeByBusStop()
+                let (_, filename) = try await api.downloadPassengerVolumeByBusStop()
                 #expect(filename.hasSuffix(".zip"))
             } catch (let e as URLError) {
                 if e.userInfo["Reason"] as! String == "Rate Limited" {
@@ -157,7 +157,7 @@ struct LandTransportKitTests {
         func getPassengerVolumeByOriginDestinationBusStop() async throws {
             await setup()
             do  {
-                let (data, filename) = try await api.downloadPassengerVolumeByOriginDestinationBusStop()
+                let (_, filename) = try await api.downloadPassengerVolumeByOriginDestinationBusStop()
                 #expect(filename.hasSuffix(".zip"))
             } catch (let e as URLError) {
                 if e.userInfo["Reason"] as! String == "Rate Limited" {
@@ -172,7 +172,7 @@ struct LandTransportKitTests {
         func getPassengerVolumeByTrainStation() async throws {
             await setup()
             do  {
-                let (data, filename) = try await api.downloadPassengerVolumeByTrainStation()
+                let (_, filename) = try await api.downloadPassengerVolumeByTrainStation()
                 #expect(filename.hasSuffix(".zip"))
             } catch (let e as URLError) {
                 if e.userInfo["Reason"] as! String == "Rate Limited" {
@@ -187,7 +187,7 @@ struct LandTransportKitTests {
         func getPassengerVolumeByOriginDestinationTrainStation() async throws {
             await setup()
             do  {
-                let (data, filename) = try await api.downloadPassengerVolumeByOriginDestinationTrainStation()
+                let (_, filename) = try await api.downloadPassengerVolumeByOriginDestinationTrainStation()
                 #expect(filename.hasSuffix(".zip"))
             } catch (let e as URLError) {
                 if e.userInfo["Reason"] as! String == "Rate Limited" {
