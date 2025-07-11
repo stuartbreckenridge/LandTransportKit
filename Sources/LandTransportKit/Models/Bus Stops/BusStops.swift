@@ -15,7 +15,7 @@ import CoreLocation
 /// 
 /// - Properties:
 ///   - stops: An array of `BusStop` representing the locations included in this set.
-internal struct BusStops: Codable {
+internal struct BusStops: Codable, Sendable {
     public let value: [BusStop]
 }
 
@@ -33,7 +33,7 @@ internal struct BusStops: Codable {
 ///   - Longitude: The longitude coordinate of the bus stop's location.
 ///   - coordinate: Returns the location as a `CLLocation` object.
 ///   - coordinate2D: Returns the location as a `CLLocationCoordinate2D` value.
-public struct BusStop: Codable {
+public struct BusStop: Codable, Sendable {
     
     let BusStopCode: String
     let RoadName: String
