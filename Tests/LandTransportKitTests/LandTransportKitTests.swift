@@ -44,7 +44,7 @@ struct LandTransportKitTests {
                         #expect(arrival.NextBus.Monitored == 0 || arrival.NextBus.Monitored == 1)
                         #expect(arrival.NextBus.VisitNumber.count > 0)
                         #expect(arrival.NextBus.Type == "BD" || arrival.NextBus.Type == "DD" || arrival.NextBus.Type == "SD")
-                        #expect(arrival.NextBus.coordinate != nil)
+                        #expect(arrival.NextBus.location != nil)
                         #expect(arrival.NextBus.coordinate2D != nil)
                         #expect(arrival.NextBus.Load == "LSD" || arrival.NextBus.Load == "SEA" || arrival.NextBus.Load == "SDA")
                     }
@@ -196,6 +196,26 @@ struct LandTransportKitTests {
             } catch {
                 #expect(Bool(false))
             }
+        }
+        
+    }
+    
+    
+    @Suite("Taxi Availability")
+    struct TaxiAvailabiltyTest {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Get Available Taxis")
+        func getAvailableTaxis() async throws {
+            let taxis = try await api.downloadTaxiAvailability()
+            #expect(taxis.count > 0)
         }
         
     }

@@ -28,7 +28,7 @@ import CoreLocation
 /// - `Monitored`: Indicates whether the bus is currently being monitored in real-time (1 for yes, 0 for no (arrival estimate is based on schedule)).
 ///
 /// Computed Properties:
-/// - `coordinate`: The bus's location as a `CLLocation` object.
+/// - `location`: The bus's location as a `CLLocation` object.
 /// - `coordinate2D`: The bus's location as a `CLLocationCoordinate2D` value.
 public struct NextBus: Codable, Sendable {
     
@@ -43,7 +43,7 @@ public struct NextBus: Codable, Sendable {
     public let `Type`: String
     public let Monitored: Int
     
-    var coordinate: CLLocation? {
+    var location: CLLocation? {
         if let lat = Double(Latitude), let lon = Double(Longitude) {
             return CLLocation(latitude: lat, longitude: lon)
         }
