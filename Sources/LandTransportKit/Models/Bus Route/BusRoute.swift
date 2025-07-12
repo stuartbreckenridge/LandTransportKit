@@ -23,7 +23,7 @@ internal struct BusRoutes: Codable, Sendable {
 /// - Parameters:
 ///   - ServiceNo: The unique identifier for the bus service number (e.g., "12", "NR7").
 ///   - Operator: The code of the bus service operator (e.g., "SBST", "SMRT").
-///   - Direction: The direction of the bus route (typically 1 or 2 for two-way routes).
+///   - Direction: The direction in which the bus travels (1 or 2), loop services only have 1 direction.
 ///   - StopSequence: The position of the stop in the route sequence (starting from 1).
 ///   - BusStopCode: The unique code for the bus stop.
 ///   - Distance: The distance (in kilometers) from the starting point to this stop.

@@ -34,7 +34,7 @@ public extension LandTransportAPI {
                 throw URLError.init(.cannotLoadFromNetwork, userInfo: ["Reason" : "Rate Limited"])
             }
         }
-        let decoded = try JSONDecoder().decode(PassengerVolumeByBusStop.self, from: jsonData)
+        let decoded = try JSONDecoder().decode(PassengerVolume.self, from: jsonData)
         
         guard let link = decoded.value.first?.Link else {
             throw URLError(.cannotLoadFromNetwork)
@@ -70,7 +70,7 @@ public extension LandTransportAPI {
                 throw URLError.init(.cannotLoadFromNetwork, userInfo: ["Reason" : "Rate Limited"])
             }
         }
-        let decoded = try JSONDecoder().decode(PassengerVolumeByBusStop.self, from: jsonData)
+        let decoded = try JSONDecoder().decode(PassengerVolume.self, from: jsonData)
         
         guard let link = decoded.value.first?.Link else {
             throw URLError(.cannotLoadFromNetwork)
@@ -104,7 +104,7 @@ public extension LandTransportAPI {
                 throw URLError.init(.cannotLoadFromNetwork, userInfo: ["Reason" : "Rate Limited"])
             }
         }
-        let decoded = try JSONDecoder().decode(PassengerVolumeByBusStop.self, from: jsonData)
+        let decoded = try JSONDecoder().decode(PassengerVolume.self, from: jsonData)
         
         guard let link = decoded.value.first?.Link else {
             throw URLError(.cannotLoadFromNetwork)
@@ -140,7 +140,7 @@ public extension LandTransportAPI {
                 throw URLError.init(.cannotLoadFromNetwork, userInfo: ["Reason" : "Rate Limited"])
             }
         }
-        let decoded = try JSONDecoder().decode(PassengerVolumeByBusStop.self, from: jsonData)
+        let decoded = try JSONDecoder().decode(PassengerVolume.self, from: jsonData)
         
         guard let link = decoded.value.first?.Link else {
             throw URLError(.cannotLoadFromNetwork)
