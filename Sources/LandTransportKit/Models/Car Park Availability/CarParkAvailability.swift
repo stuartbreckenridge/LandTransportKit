@@ -41,7 +41,7 @@ internal struct CarParkAvailability: Codable, Sendable {
 ///
 public struct CarPark: Codable, Sendable, Identifiable {
     
-    public var id: String { CarParkID }
+    public var id: String { CarParkID + "_" + LotType }
     
     public let CarParkID: String
     public let Area: String
