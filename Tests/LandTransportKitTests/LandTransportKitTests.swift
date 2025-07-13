@@ -201,7 +201,7 @@ struct LandTransportKitTests {
     }
     
     
-    @Suite("Taxi Availability")
+    @Suite("Taxi Tests")
     struct TaxiAvailabiltyTest {
         let api = LandTransportAPI.shared
         
@@ -218,6 +218,31 @@ struct LandTransportKitTests {
             #expect(taxis.count > 0)
         }
         
+        @Test("Get Taxi Stands")
+        func getTaxiStands() async throws {
+            let taxis = try await api.downloadTaxiAvailability()
+            #expect(taxis.count > 0)
+        }
+        
     }
     
+    @Suite("Train Tests")
+    struct TrainServiceTests {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Get Train Service Stats")
+        func getTrainServiceAlerts() async throws {
+            let alert = try await api.downloadTrainServiceAlerts()
+            #expect(alert.Status == 1 || alert.Status == 2)
+        }
+        
+    }
+     
 }
