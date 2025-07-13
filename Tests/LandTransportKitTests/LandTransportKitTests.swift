@@ -35,13 +35,13 @@ struct LandTransportKitTests {
                     
                     if !arrival.NextBus.EstimatedArrival.isEmpty {
                         if let coord = arrival.NextBus.coordinate2D {
-                            #expect(coord.latitude != Double(arrival.NextBus.Latitude))
-                            #expect(coord.longitude != Double(arrival.NextBus.Longitude))
+                            #expect(coord.latitude == Double(arrival.NextBus.Latitude))
+                            #expect(coord.longitude == Double(arrival.NextBus.Longitude))
                         }
                         
                         if let location = arrival.NextBus.location {
-                            #expect(location.coordinate.latitude != Double(arrival.NextBus.Latitude))
-                            #expect(location.coordinate.longitude != Double(arrival.NextBus.Longitude))
+                            #expect(location.coordinate.latitude == Double(arrival.NextBus.Latitude))
+                            #expect(location.coordinate.longitude == Double(arrival.NextBus.Longitude))
                         }
                     }
                 }
