@@ -288,5 +288,25 @@ struct LandTransportKitTests {
         }
         
     }
+    
+    @Suite("Faulty Traffic Lights")
+    struct TrafficLightTest {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Traffic Light Tests")
+        func getTravelTime() async throws {
+            await setup()
+            let faults = try await api.downloadFaultyTrafficLights()
+            #expect(faults.count >= 0)
+        }
+        
+    }
      
 }
