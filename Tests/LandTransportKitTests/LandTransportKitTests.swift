@@ -276,7 +276,9 @@ struct LandTransportKitTests {
             await setup()
             let carparks = try await api.downloadCarParkAvailability()
             #expect(carparks.count > 0)
-            #expect(carparks[0].coordinate != nil)
+            carparks.forEach { cp in
+                #expect(cp.coordinate != nil)
+            }
         }
         
     }
