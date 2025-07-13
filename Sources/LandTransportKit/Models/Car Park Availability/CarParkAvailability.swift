@@ -19,7 +19,7 @@ import CoreLocation
 /// - Properties:
 ///   - value: An array of `CarPark` instances, each detailing the status and metadata for a car park.
 internal struct CarParkAvailability: Codable, Sendable {
-    var value: [CarPark]
+    let value: [CarPark]
 }
 
 

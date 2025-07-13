@@ -24,17 +24,20 @@ public extension LandTransportAPI {
     func downloadCarParkAvailability(_ carParks: [CarPark] = [], skip: Int = 0) async throws -> [CarPark] {
         var currentCarParks = carParks
     
-        var urlRequest = URLRequest(url: LandTransportEndpoints.carParkAvailability.url)
+        var urlComponents = URLComponents(url: LandTransportEndpoints.carParkAvailability.url, resolvingAgainstBaseURL: false)
+        urlComponents?.queryItems = [URLQueryItem(name: "$skip", value: String(skip))]
+        
+        var urlRequest = URLRequest(url: urlComponents!.url!)
         urlRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
         let downloadedCarParks = try JSONDecoder().decode(CarParkAvailability.self, from: data).value
         
         currentCarParks.append(contentsOf: downloadedCarParks)
         
-        if downloadedCarParks.count < 500 {
-            return currentCarParks
-        } else {
+        if downloadedCarParks.count == 500 {
             return try await downloadCarParkAvailability(currentCarParks, skip: skip + 500)
+        } else {
+            return currentCarParks
         }
     }
     
