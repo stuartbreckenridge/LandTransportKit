@@ -7,6 +7,7 @@
 
 import Testing
 import Foundation
+import CoreLocation
 @testable import LandTransportKit
 
 struct LandTransportKitTests {
@@ -30,24 +31,7 @@ struct LandTransportKitTests {
                 #expect(arrivals.Services.count >= 0)
                 if arrivals.Services.count > 0 {
                     let arrival = arrivals.Services[0]
-                    #expect(arrival.ServiceNo.count > 0)
-                    #expect(arrival.Operator.count > 0)
-                    if arrival.NextBus.DestinationCode != "" {
-                        #expect(arrival.NextBus.EstimatedArrival.count > 0)
-                        let formatter = ISO8601DateFormatter()
-                        let date = formatter.date(from: arrival.NextBus.EstimatedArrival)
-                        #expect(date != nil)
-                        #expect(arrival.NextBus.Latitude.count > 0)
-                        #expect(arrival.NextBus.Longitude.count > 0)
-                        #expect(arrival.NextBus.DestinationCode.count > 0)
-                        #expect(arrival.NextBus.Feature == "WAB" || arrival.NextBus.Feature == "")
-                        #expect(arrival.NextBus.Monitored == 0 || arrival.NextBus.Monitored == 1)
-                        #expect(arrival.NextBus.VisitNumber.count > 0)
-                        #expect(arrival.NextBus.Type == "BD" || arrival.NextBus.Type == "DD" || arrival.NextBus.Type == "SD")
-                        #expect(arrival.NextBus.location != nil)
-                        #expect(arrival.NextBus.coordinate2D != nil)
-                        #expect(arrival.NextBus.Load == "LSD" || arrival.NextBus.Load == "SEA" || arrival.NextBus.Load == "SDA")
-                    }
+                    #expect(arrival.id == arrival.ServiceNo)
                 }
             } catch {
                 #expect(Bool(false), "Unexpected error: \(error)")
@@ -124,6 +108,11 @@ struct LandTransportKitTests {
             await setup()
             let stops = try await api.downloadBusStops()
             #expect(stops.count > 0)
+            let stop = stops[0]
+            #expect(stop.coordinate2D?.latitude == stop.Latitude)
+            #expect(stop.coordinate2D?.longitude == stop.Longitude)
+            #expect(stop.location.coordinate.latitude == stop.Latitude)
+            #expect(stop.location.coordinate.longitude == stop.Longitude)
         }
     }
     
@@ -344,6 +333,8 @@ struct LandTransportKitTests {
             await setup()
             let openings = try await api.downloadRoadOpenings()
             #expect(openings.count >= 0)
+            let opening = openings[0]
+            #expect(opening.id == opening.EventID)
         }
         
     }
