@@ -326,5 +326,26 @@ struct LandTransportKitTests {
         }
         
     }
+    
+    
+    @Suite("Road Openings Tests")
+    struct RoadOpeningsTest {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Road Openings Test")
+        func getRoadOpening() async throws {
+            await setup()
+            let openings = try await api.downloadRoadOpenings()
+            #expect(openings.count >= 0)
+        }
+        
+    }
      
 }
