@@ -12,6 +12,7 @@ enum LandTransportEndpoints {
     case busServices
     case busRoutes
     case busStops
+    case carParkAvailability
     case passengerVolumeByBusStop
     case passengerVolumeByOriginDestinationBusStops
     case passengerVolumeByOriginDestinationTrainStation
@@ -30,6 +31,8 @@ enum LandTransportEndpoints {
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/BusRoutes")!
         case .busStops:
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/BusStops")!
+        case .carParkAvailability:
+            return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/CarParkAvailabilityv2")!
         case .passengerVolumeByBusStop:
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/PV/Bus")!
         case .passengerVolumeByOriginDestinationBusStops:

@@ -244,5 +244,25 @@ struct LandTransportKitTests {
         }
         
     }
+    
+    @Suite("Car Park Tests")
+    struct CarParkTests {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Get Car Park Availability")
+        func getCarParkAvailability() async throws {
+            let carparks = try await api.downloadCarParkAvailability()
+            #expect(carparks.count > 0)
+            #expect(carparks[0].coordinate != nil)
+        }
+        
+    }
      
 }
