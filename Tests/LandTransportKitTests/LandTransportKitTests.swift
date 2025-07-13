@@ -305,6 +305,24 @@ struct LandTransportKitTests {
             await setup()
             let faults = try await api.downloadFaultyTrafficLights()
             #expect(faults.count >= 0)
+            if faults.count > 0 {
+                let fault = faults[0]
+                if fault.StartDate.isEmpty {
+                    #expect(fault.iso8601StartDate == nil)
+                } else {
+                    #expect(fault.iso8601StartDate != nil)
+                }
+                if fault.EndDate.isEmpty {
+                    #expect(fault.iso8601EndDate == nil)
+                } else {
+                    #expect(fault.iso8601EndDate != nil)
+                }
+                if fault.EndDate.isEmpty {
+                    #expect(fault.isScheduledMaintenance == false)
+                } else {
+                    #expect(fault.isScheduledMaintenance == true)
+                }
+            }
         }
         
     }
