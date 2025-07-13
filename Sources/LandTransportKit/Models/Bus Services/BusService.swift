@@ -54,7 +54,7 @@ internal struct BusServices: Codable, Sendable {
 /// ```
 public struct BusService: Codable, Sendable, Identifiable {
     
-    public var id: String { ServiceNo }
+    public var id: String { ServiceNo + "_" + Direction.description }
     
     public let ServiceNo: String
     public let `Operator`: String
