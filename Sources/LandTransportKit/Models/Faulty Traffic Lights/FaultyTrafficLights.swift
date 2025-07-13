@@ -33,14 +33,14 @@ internal struct FaultyTrafficLights: Codable, Sendable {
 ///
 ///  - Note: Not all `Type`s of incident are documented. The API may return "2" for `Type` but the `Message` returned will be `(13/7)11:03 Black Out at Woodlands Avenue 6/Woodlands Drive 65 Junction.`
 public struct FaultyTrafficLight: Codable, Sendable {
-    let AlarmID: String
-    let NodeID: String
-    let `Type`: String
-    let StartDate: String
-    let EndDate: String
-    let Message: String
+    public  let AlarmID: String
+    public  let NodeID: String
+    public  let `Type`: String
+    public  let StartDate: String
+    public  let EndDate: String
+    public  let Message: String
     
-    var iso8601StartDate: Date? {
+    public var iso8601StartDate: Date? {
         if StartDate.isEmpty {
             return nil
         } else {
@@ -51,7 +51,7 @@ public struct FaultyTrafficLight: Codable, Sendable {
         }
     }
     
-    var iso8601EndDate: Date? {
+    public var iso8601EndDate: Date? {
         if EndDate.isEmpty {
             return nil
         } else {
@@ -62,7 +62,7 @@ public struct FaultyTrafficLight: Codable, Sendable {
         }
     }
     
-    var isScheduledMaintenance: Bool {
+    public var isScheduledMaintenance: Bool {
         return !EndDate.isEmpty
     }
     

@@ -27,14 +27,14 @@ internal struct Taxis: Codable, Sendable {
 ///   - location: A `CLLocation` object representing the taxi's geographic position.
 public struct TaxiAvailability: Codable, Sendable {
     
-    let Latitude: Double
-    let Longitude: Double
+    public let Latitude: Double
+    public let Longitude: Double
     
-    var coordinate2D: CLLocationCoordinate2D {
+    public var coordinate2D: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: Latitude, longitude: Longitude)
     }
     
-    var location: CLLocation {
+    public var location: CLLocation {
         CLLocation(latitude: Latitude, longitude: Longitude)
     }
 

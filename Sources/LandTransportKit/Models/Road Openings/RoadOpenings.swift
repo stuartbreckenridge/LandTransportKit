@@ -39,10 +39,10 @@ public struct RoadOpening: Codable, Sendable, Identifiable {
         EventID
     }
     
-    let EventID: String
-    let StartDate: String
-    let EndDate: String
-    let SvcDept: String
-    let RoadName: String
-    let Other: String
+    public let EventID: String
+    public let StartDate: String
+    public let EndDate: String
+    public let SvcDept: String
+    public let RoadName: String
+    public let Other: String
 }

@@ -56,15 +56,15 @@ public struct BusService: Codable, Sendable, Identifiable {
     
     public var id: String { ServiceNo }
     
-    let ServiceNo: String
-    let `Operator`: String
-    let Direction: Int
-    let Category: String
-    let OriginCode: String
-    let DestinationCode: String
-    let AM_Peak_Freq: String
-    let AM_Offpeak_Freq: String
-    let PM_Peak_Freq: String
-    let PM_Offpeak_Freq: String
-    let LoopDesc: String
+    public let ServiceNo: String
+    public let `Operator`: String
+    public let Direction: Int
+    public let Category: String
+    public let OriginCode: String
+    public let DestinationCode: String
+    public let AM_Peak_Freq: String
+    public let AM_Offpeak_Freq: String
+    public let PM_Peak_Freq: String
+    public let PM_Offpeak_Freq: String
+    public let LoopDesc: String
 }

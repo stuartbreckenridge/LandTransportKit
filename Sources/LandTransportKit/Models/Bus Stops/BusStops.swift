@@ -35,17 +35,17 @@ internal struct BusStops: Codable, Sendable {
 ///   - coordinate2D: Returns the location as a `CLLocationCoordinate2D` value.
 public struct BusStop: Codable, Sendable {
     
-    let BusStopCode: String
-    let RoadName: String
-    let `Description`: String
-    let Latitude: Double
-    let Longitude: Double
-    
-    var location: CLLocation {
+    public let BusStopCode: String
+    public let RoadName: String
+    public let `Description`: String
+    public let Latitude: Double
+    public let Longitude: Double
+   
+    public var location: CLLocation {
         return CLLocation(latitude: Latitude, longitude: Longitude)
     }
     
-    var coordinate2D: CLLocationCoordinate2D? {
+    public var coordinate2D: CLLocationCoordinate2D? {
         return CLLocationCoordinate2D(latitude: Latitude, longitude: Longitude)
     }
     

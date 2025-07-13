@@ -35,17 +35,17 @@ internal struct BusRoutes: Codable, Sendable {
 ///   - SUN_LastBus: The scheduled last bus departure time on Sundays and public holidays.
 public struct BusRoute: Codable, Sendable {
     
-    let ServiceNo: String
-    let `Operator`: String
-    let Direction: Int
-    let StopSequence: Int
-    let BusStopCode: String
-    let Distance: Double
-    let WD_FirstBus: String
-    let WD_LastBus: String
-    let SAT_FirstBus: String
-    let SAT_LastBus: String
-    let SUN_FirstBus: String
-    let SUN_LastBus: String
+    public let ServiceNo: String
+    public let `Operator`: String
+    public let Direction: Int
+    public let StopSequence: Int
+    public let BusStopCode: String
+    public let Distance: Double
+    public let WD_FirstBus: String
+    public let WD_LastBus: String
+    public let SAT_FirstBus: String
+    public let SAT_LastBus: String
+    public let SUN_FirstBus: String
+    public let SUN_LastBus: String
     
 }
