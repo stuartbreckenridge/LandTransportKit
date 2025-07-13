@@ -218,13 +218,23 @@ struct LandTransportKitTests {
             await setup()
             let taxis = try await api.downloadTaxiAvailability()
             #expect(taxis.count > 0)
+            let taxi = taxis.first!
+            #expect(taxi.coordinate2D.latitude == taxi.Latitude)
+            #expect(taxi.coordinate2D.longitude == taxi.Longitude)
+            #expect(taxi.location.coordinate.latitude == taxi.Latitude)
+            #expect(taxi.location.coordinate.longitude == taxi.Longitude)
         }
         
         @Test("Get Taxi Stands")
         func getTaxiStands() async throws {
             await setup()
-            let taxis = try await api.downloadTaxiAvailability()
-            #expect(taxis.count > 0)
+            let stands = try await api.downloadTaxiStands()
+            #expect(stands.count > 0)
+            let stand = stands.first!
+            #expect(stand.coordinate2D.latitude == stand.Latitude)
+            #expect(stand.coordinate2D.longitude == stand.Longitude)
+            #expect(stand.location.coordinate.latitude == stand.Latitude)
+            #expect(stand.location.coordinate.longitude == stand.Longitude)
         }
         
     }

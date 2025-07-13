@@ -39,7 +39,7 @@ internal struct TaxiStands: Codable, Sendable {
 ///   - Type: The type or classification of the taxi stand.
 ///   - Name: The human-readable name of the taxi stand.
 ///   - location: A computed property returning the taxi stand's location as a `CLLocation`.
-///   - coordinate: A computed property returning the taxi stand's coordinate as a `CLLocationCoordinate2D`.
+///   - coordinate2D: A computed property returning the taxi stand's coordinate as a `CLLocationCoordinate2D`.
 public struct TaxiStand: Codable, Sendable {
     public let TaxiCode: String
     public let Latitude: Double
@@ -53,7 +53,7 @@ public struct TaxiStand: Codable, Sendable {
         CLLocation(latitude: Latitude, longitude: Longitude)
     }
     
-    public var coordinate: CLLocationCoordinate2D {
+    public var coordinate2D: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: Latitude, longitude: Longitude)
     }
     
