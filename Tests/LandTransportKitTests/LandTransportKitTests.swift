@@ -268,5 +268,25 @@ struct LandTransportKitTests {
         }
         
     }
+    
+    @Suite("Estimated Travel Time")
+    struct TravelTimeTests {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Travel Time Estimate Tests")
+        func getTravelTime() async throws {
+            await setup()
+            let times = try await api.downloadEstimatedTravelTimes()
+            #expect(times.count > 0)
+        }
+        
+    }
      
 }
