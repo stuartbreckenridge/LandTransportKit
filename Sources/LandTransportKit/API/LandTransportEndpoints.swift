@@ -20,6 +20,7 @@ enum LandTransportEndpoints {
     case passengerVolumeByOriginDestinationTrainStation
     case passengerVolumeByTrainStation
     case roadOpenings
+    case roadWorks
     case taxiAvailability
     case taxiStands
     case trainServiceAlerts
@@ -50,6 +51,8 @@ enum LandTransportEndpoints {
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/PV/Train")!
         case .roadOpenings:
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/RoadOpenings")!
+        case .roadWorks:
+            return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/RoadWorks")!
         case .taxiAvailability:
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/Taxi-Availability")!
         case .taxiStands:

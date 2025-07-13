@@ -18,4 +18,3 @@ A Swift package for accessing real-time and static data from Singapore's Land Tr
 - 📸 Live Traffic Camera Images
 - 🚧 Traffic Incidents, Roadworks, and Speed Bands
 - 🚇 MRT Service Alerts and Station Crowd Levels
-- 📍 Geospatial Data

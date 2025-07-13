@@ -1,5 +1,5 @@
 //
-//  RoadOpenings.swift
+//  RoadEvents.swift
 //  LandTransportKit
 //
 //  Created by Stuart Breckenridge on 13/07/2025.
@@ -7,20 +7,20 @@
 
 import Foundation
 
-/// A container for an array of `RoadOpening` events.
-/// 
-/// `RoadOpenings` is used to decode and represent a list of road opening events as provided by the external data source.
-/// Each event in the `value` array contains detailed information about a specific road opening, including timing, location, and responsible department.
-/// 
+/// A container for an array of `RoadEvent` events.
+///
+/// `RoadEvents` is used to decode and represent a list of road opening events as provided by the external data source.
+/// Each event in the `value` array contains detailed information about a specific road opening/works, including timing, location, and responsible department.
+///
 /// - Properties:
-///   - value: An array of `RoadOpening` items, each representing a scheduled or current road opening event.
-internal struct RoadOpenings: Codable, Sendable {
-    let value: [RoadOpening]
+///   - value: An array of `RoadEvent` items, each representing a scheduled or current road opening or road works event.
+internal struct RoadEvents: Codable, Sendable {
+    let value: [RoadEvent]
 }
 
 /// A structure representing a road opening event.
 ///
-/// `RoadOpening` provides details about a scheduled or current road opening, including
+/// `RoadEvent` provides details about a scheduled or current road opening or road works, including
 /// event identifiers, date range, responsible department, affected road, and additional information.
 ///
 /// - Note: All properties mirror the fields provided by the external data source.
@@ -33,7 +33,7 @@ internal struct RoadOpenings: Codable, Sendable {
 ///   - SvcDept: Department or company performing this road work
 ///   - RoadName: The name of the road affected by the opening.
 ///   - Other: Additional details or notes about the event.
-public struct RoadOpening: Codable, Sendable, Identifiable {
+public struct RoadEvent: Codable, Sendable, Identifiable {
     
     public var id: String {
         EventID

@@ -339,7 +339,7 @@ struct LandTransportKitTests {
         
     }
     
-    @Suite("Road Openings Tests")
+    @Suite("Road Events Tests")
     struct RoadOpeningsTest {
         let api = LandTransportAPI.shared
         
@@ -359,6 +359,15 @@ struct LandTransportKitTests {
             #expect(opening.id == opening.EventID)
         }
         
+        
+        @Test("Road Works Test")
+        func getRoadWorks() async throws {
+            await setup()
+            let works = try await api.downloadRoadWorks()
+            #expect(works.count >= 0)
+            let work = works[0]
+            #expect(work.id == work.EventID)
+        }
     }
      
 }
