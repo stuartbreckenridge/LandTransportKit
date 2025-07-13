@@ -33,7 +33,11 @@ internal struct BusStops: Codable, Sendable {
 ///   - Longitude: The longitude coordinate of the bus stop's location.
 ///   - location: Returns the location as a `CLLocation` object.
 ///   - coordinate2D: Returns the location as a `CLLocationCoordinate2D` value.
-public struct BusStop: Codable, Sendable {
+public struct BusStop: Codable, Sendable, Identifiable {
+    
+    public var id: String {
+        BusStopCode
+    }
     
     public let BusStopCode: String
     public let RoadName: String
