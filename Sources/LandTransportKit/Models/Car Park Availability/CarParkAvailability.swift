@@ -39,7 +39,9 @@ internal struct CarParkAvailability: Codable, Sendable {
 ///   - Agency: The agency or organization managing the car park.
 ///   - coordinate: The computed coordinate (`CLLocationCoordinate2D`) derived from the `Location` property, or `nil` if parsing fails.
 ///
-public struct CarPark: Codable, Sendable {
+public struct CarPark: Codable, Sendable, Identifiable {
+    
+    public var id: String { CarParkID }
     
     public let CarParkID: String
     public let Area: String
