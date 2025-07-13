@@ -32,6 +32,18 @@ struct LandTransportKitTests {
                 if arrivals.Services.count > 0 {
                     let arrival = arrivals.Services[0]
                     #expect(arrival.id == arrival.ServiceNo)
+                    
+                    if !arrival.NextBus.EstimatedArrival.isEmpty {
+                        if let coord = arrival.NextBus.coordinate2D {
+                            #expect(coord.latitude != Double(arrival.NextBus.Latitude))
+                            #expect(coord.longitude != Double(arrival.NextBus.Longitude))
+                        }
+                        
+                        if let location = arrival.NextBus.location {
+                            #expect(location.coordinate.latitude != Double(arrival.NextBus.Latitude))
+                            #expect(location.coordinate.longitude != Double(arrival.NextBus.Longitude))
+                        }
+                    }
                 }
             } catch {
                 #expect(Bool(false), "Unexpected error: \(error)")
@@ -290,7 +302,7 @@ struct LandTransportKitTests {
         }
         
         @Test("Traffic Light Tests")
-        func getTravelTime() async throws {
+        func getFaultyTrafficLight() async throws {
             await setup()
             let faults = try await api.downloadFaultyTrafficLights()
             #expect(faults.count >= 0)
