@@ -214,12 +214,14 @@ struct LandTransportKitTests {
         
         @Test("Get Available Taxis")
         func getAvailableTaxis() async throws {
+            await setup()
             let taxis = try await api.downloadTaxiAvailability()
             #expect(taxis.count > 0)
         }
         
         @Test("Get Taxi Stands")
         func getTaxiStands() async throws {
+            await setup()
             let taxis = try await api.downloadTaxiAvailability()
             #expect(taxis.count > 0)
         }
@@ -239,6 +241,7 @@ struct LandTransportKitTests {
         
         @Test("Get Train Service Stats")
         func getTrainServiceAlerts() async throws {
+            await setup()
             let alert = try await api.downloadTrainServiceAlerts()
             #expect(alert.Status == 1 || alert.Status == 2)
         }
@@ -258,6 +261,7 @@ struct LandTransportKitTests {
         
         @Test("Get Car Park Availability")
         func getCarParkAvailability() async throws {
+            await setup()
             let carparks = try await api.downloadCarParkAvailability()
             #expect(carparks.count > 0)
             #expect(carparks[0].coordinate != nil)
