@@ -12,7 +12,8 @@ import CoreLocation
 
 struct LandTransportKitTests {
     
-    @Suite("Bus Arrival Tests") struct BusArrivalTests {
+    @Suite("Bus Arrival Tests")
+    struct BusArrivalTests {
         
         let api = LandTransportAPI.shared
         
@@ -66,7 +67,8 @@ struct LandTransportKitTests {
         
     }
     
-    @Suite("Bus Service Test") struct BusServiceTest {
+    @Suite("Bus Service Test")
+    struct BusServiceTest {
         let api = LandTransportAPI.shared
         
         @Test("Set the API key")
@@ -200,7 +202,6 @@ struct LandTransportKitTests {
         }
         
     }
-    
     
     @Suite("Taxi Tests")
     struct TaxiAvailabiltyTest {
@@ -337,7 +338,6 @@ struct LandTransportKitTests {
         }
         
     }
-    
     
     @Suite("Road Openings Tests")
     struct RoadOpeningsTest {

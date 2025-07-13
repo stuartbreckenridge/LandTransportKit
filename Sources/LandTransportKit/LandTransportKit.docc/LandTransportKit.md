@@ -1,10 +1,10 @@
 # ``LandTransportKit``
 
-<!--@START_MENU_TOKEN@-->Summary<!--@END_MENU_TOKEN@-->
+A Swift package for accessing real-time and static data from Singapore's Land Transport Authority (LTA) DataMall API. 
 
 ## Overview
 
-<!--@START_MENU_TOKEN@-->Text<!--@END_MENU_TOKEN@-->
+This package provides strongly typed interfaces to common transport datasets such as Bus Arrival times, Traffic Images, Carpark Availability, Taxi Locations, and more.
 
 ## Topics
 
