@@ -14,24 +14,32 @@ internal struct TrafficImages: Codable {
 
 
 
-/// A structure representing a real-time traffic camera image and its metadata.
+/// A type that models a real-time traffic camera image and its associated metadata.
 ///
-/// `TrafficImage` includes information about the camera's unique identifier, geographic location,
-/// and a link to the associated image. It is typically used to display or process traffic camera images
-/// for a given location.
+/// The `TrafficImage` structure provides a representation of a traffic camera,
+/// including its unique identifier, geographic location, and a link to the most
+/// recently available image from the camera. This type is suitable for use in
+/// applications that display or process real-time traffic camera imagery.
 ///
-/// Conforms to `Codable` for easy encoding and decoding to and from external data representations,
-/// and `Identifiable` for use in lists and data collections.
+/// - Note: This object conforms to `Codable`, enabling encoding and decoding
+///   from JSON or similar representations. It also conforms to `Identifiable`
+///   (using camera ID as its unique identifier) and `Sendable` for safe use
+///   in concurrent contexts.
 ///
 /// - Properties:
-///   - id: A unique identifier for the traffic camera, derived from `CameraID`. Used for identification in lists.
+///   - id: A unique identifier for the traffic camera, derived from `CameraID`.
 ///   - CameraID: The unique string identifier of the traffic camera.
 ///   - Latitude: The latitude coordinate of the camera's physical location.
 ///   - Longitude: The longitude coordinate of the camera's physical location.
 ///   - ImageLink: A URL string pointing to the latest available image from this traffic camera.
-///   - location: Returns a `CLLocation` instance representing the camera's physical location. Useful for distance and region calculations.
-///   - coordinate2D: Returns a `CLLocationCoordinate2D` value for use with mapping frameworks.
-public struct TrafficImage: Codable, Identifiable {
+///   - location: A computed property returning a `CLLocation` instance for the camera's location.
+///   - coordinate2D: A computed property returning a `CLLocationCoordinate2D` for mapping frameworks.
+///
+/// - Usage:
+///   Use `TrafficImage` to represent, display, or interact with
+///   live traffic camera images and their metadata.
+///
+public struct TrafficImage: Codable, Identifiable, Sendable {
     
     public var id: String { CameraID }
     
