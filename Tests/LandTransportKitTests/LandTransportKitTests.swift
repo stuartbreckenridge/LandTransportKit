@@ -470,5 +470,24 @@ struct LandTransportKitTests {
         }
     }
      
+    
+    @Suite("Faclilities Test")
+    struct FacilitiesTest {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Get Maintenance")
+        func getFacilitiesMaintenance() async throws {
+            await setup()
+            let maintenance = try await api.downloadFacilitiesMaintenance()
+            #expect(maintenance.count >= 0)
+        }
+    }
      
 }

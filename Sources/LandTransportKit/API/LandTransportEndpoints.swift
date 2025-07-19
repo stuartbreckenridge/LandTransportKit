@@ -15,6 +15,7 @@ enum LandTransportEndpoints {
     case busStops
     case carParkAvailability
     case estimatedTravelTime
+    case facilitiesMaintenance
     case faultyTrafficLights
     case passengerVolumeByBusStop
     case passengerVolumeByOriginDestinationBusStops
@@ -74,6 +75,8 @@ enum LandTransportEndpoints {
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/VMS")!
         case .bikeParking:
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/BicycleParkingv2")!
+        case .facilitiesMaintenance:
+            return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/v2/FacilitiesMaintenance")!
         }
     }
 }
