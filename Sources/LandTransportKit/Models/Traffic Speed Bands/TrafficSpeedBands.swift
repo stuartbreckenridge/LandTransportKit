@@ -60,15 +60,15 @@ public struct TrafficSpeedBand: Codable, Identifiable, Sendable {
     public let EndLat: String
     
     public var startCoordinate: CLLocationCoordinate2D {
-        var lat = Double(StartLat)
-        var lon = Double(StartLon)
+        let lat = Double(StartLat)
+        let lon = Double(StartLon)
         
         return CLLocationCoordinate2D(latitude: lat!, longitude: lon!)
     }
     
     public var endCoordinate: CLLocationCoordinate2D {
-        var lat = Double(EndLat)
-        var lon = Double(EndLon)
+        let lat = Double(EndLat)
+        let lon = Double(EndLon)
         
         return CLLocationCoordinate2D(latitude: lat!, longitude: lon!)
     }
