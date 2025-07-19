@@ -490,4 +490,30 @@ struct LandTransportKitTests {
         }
     }
      
+    
+    @Suite("Density Tests")
+    struct DensityTest {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Get Real Time Density")
+        func getRealTimeDensity() async throws {
+            await setup()
+            let forecast = try await api.downloadRealTimeDensity(for: .dtl)
+            #expect(forecast.count >= 0)
+        }
+        
+        @Test("Get Forecast Density")
+        func getForecastDensity() async throws {
+            await setup()
+            let forecast = try await api.downloadForecastDensity(for: .dtl)
+            #expect(forecast.count >= 0)
+        }
+    }
 }

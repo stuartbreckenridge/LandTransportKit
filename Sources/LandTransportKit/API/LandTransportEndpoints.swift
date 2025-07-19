@@ -23,6 +23,8 @@ enum LandTransportEndpoints {
     case passengerVolumeByTrainStation
     case roadOpenings
     case roadWorks
+    case stationCrowdDensityRealTime
+    case stationCrowdDensityForecast
     case taxiAvailability
     case taxiStands
     case trainServiceAlerts
@@ -77,6 +79,10 @@ enum LandTransportEndpoints {
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/BicycleParkingv2")!
         case .facilitiesMaintenance:
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/v2/FacilitiesMaintenance")!
+        case .stationCrowdDensityRealTime:
+            return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/PCDRealTime")!
+        case .stationCrowdDensityForecast:
+            return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/PCDForecast")!
         }
     }
 }
