@@ -8,6 +8,7 @@
 import Foundation
 
 enum LandTransportEndpoints {
+    case bikeParking
     case busArrivals
     case busServices
     case busRoutes
@@ -27,6 +28,7 @@ enum LandTransportEndpoints {
     case trafficImages
     case trafficIncidents
     case trafficSpeedBands
+    case vms
     
     var url: URL {
         switch self {
@@ -68,6 +70,10 @@ enum LandTransportEndpoints {
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/TrafficIncidents")!
         case .trafficSpeedBands:
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/v3/TrafficSpeedBands")!
+        case .vms:
+            return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/VMS")!
+        case .bikeParking:
+            return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/BicycleParkingv2")!
         }
     }
 }

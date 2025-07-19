@@ -36,14 +36,6 @@ internal struct TrafficSpeedBands: Codable {
 ///   - endCoordinate: The geographic coordinate (`CLLocationCoordinate2D`) representing the end location of the segment.
 ///
 /// `TrafficSpeedBand` conforms to `Codable`, `Identifiable`, and `Sendable` for easy encoding/decoding, unique identification, and concurrency safety.
-///
-/// Example usage:
-/// ```swift
-/// let band: TrafficSpeedBand = ...
-/// let start = band.startCoordinate
-/// let end = band.endCoordinate
-/// let speedRange = "\(band.MinimumSpeed) - \(band.MaximumSpeed) km/h"
-/// ```
 public struct TrafficSpeedBand: Codable, Identifiable, Sendable {
     
     public var id: String { LinkID }

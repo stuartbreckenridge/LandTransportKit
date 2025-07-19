@@ -429,7 +429,46 @@ struct LandTransportKitTests {
             let speedBands = try await api.downloadTrafficSpeedBands()
             #expect(speedBands.count >= 0)
         }
-        
     }
+    
+    @Suite("Traffic VMS Tests")
+    struct TrafficVMSTest {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Traffic VMS Test")
+        func getVMSMessages() async throws {
+            await setup()
+            let advisories = try await api.downloadTrafficAdvisories()
+            #expect(advisories.count >= 0)
+        }
+    }
+    
+    @Suite("Bike Park Test")
+    struct BikeParkTest {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Get Bike Parks")
+        func getBikeParks() async throws {
+            await setup()
+            let parks = try await api.getBikeParks(near: 1.364897, long: 103.766094)
+            #expect(parks.count >= 0)
+            #expect(parks.first!.location.distance(from: CLLocation(latitude: 1.364897, longitude: 103.766094)) <= 500 )
+        }
+    }
+     
      
 }
