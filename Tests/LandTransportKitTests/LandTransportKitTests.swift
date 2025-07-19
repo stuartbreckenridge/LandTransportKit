@@ -369,5 +369,46 @@ struct LandTransportKitTests {
             #expect(work.id == work.EventID)
         }
     }
+    
+    @Suite("Traffic Images Test")
+    struct TrafficImageTest {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Traffic Light Tests")
+        func getTrafficImages() async throws {
+            await setup()
+            let latestImages = try await api.downloadTrafficImages()
+            #expect(latestImages.count >= 0)
+        }
+        
+    }
+    
+    
+    @Suite("Traffic Incident Test")
+    struct TrafficIncidentsTest {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Traffic Incident Tests")
+        func getTrafficIncidents() async throws {
+            await setup()
+            let incidents = try await api.downloadTrafficIncidents()
+            #expect(incidents.count >= 0)
+        }
+        
+    }
      
 }
