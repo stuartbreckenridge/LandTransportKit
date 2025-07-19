@@ -64,23 +64,26 @@ public struct ForecastDensity: Codable, Identifiable, Sendable {
 }
 
 
-/// A structure representing a station with its forecasted crowd density interval.
+
+/// A structure representing a station and its forecast intervals for crowd density.
 ///
-/// This structure describes a station and its associated forecast interval for crowd density.
-/// It conforms to `Codable`, `Sendable`, and `Identifiable` for easy encoding, concurrency safety,
-/// and unique identification.
+/// This structure provides information about a transit station, including its identifier and a list
+/// of forecast intervals, each describing the expected crowd density at different times of the day.
+/// It conforms to `Codable` and `Sendable` for serialization and concurrency safety, and `Identifiable`
+/// for use in collections and UI.
 ///
 /// - Properties:
-///   - Station: The name or code of the station.
-///   - Interval: The `ForecastInterval` structure containing interval-specific crowd level forecasts.
+///   - Station: The unique identifier or code of the station (typically a string such as the station's name or code).
+///   - Interval: An array of `ForecastInterval` values, where each entry represents a specific time interval and the
+///     corresponding forecasted crowd density level for the station.
 ///
-/// - Note: The `id` property for identification is derived from the `Station` field.
+/// - Note: The `id` property, which provides uniqueness for `Identifiable`, is derived from the `Station` property.
 public struct Station: Codable, Sendable, Identifiable {
     
     public var id: String { Station }
     
     public let Station: String
-    public let Interval: ForecastInterval
+    public let Interval: [ForecastInterval]
     
 }
 
