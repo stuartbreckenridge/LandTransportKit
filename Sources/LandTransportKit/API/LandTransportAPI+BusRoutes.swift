@@ -39,4 +39,20 @@ public extension LandTransportAPI {
         }
     }
     
+    
+    
+    /// Downloads planned bus route information from the Land Transport API.
+    ///
+    /// This method retrieves all available `PlannedBusRoute` records from the API in a single request.
+    ///
+    /// - Returns: An array of `PlannedBusRoute` objects representing planned bus routes.
+    /// - Throws: An error if the network request fails or the response data cannot be decoded.
+    func downloadPlannedBusRoutes() async throws -> [PlannedBusRoute] {
+        var urlRequest = URLRequest(url: LandTransportEndpoints.plannedBusRoute.url)
+        urlRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
+        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        let decodedData = try JSONDecoder().decode(PlannedBusRoutes.self, from: data)
+        return decodedData.value
+    }
+    
 }

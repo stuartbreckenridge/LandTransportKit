@@ -104,6 +104,13 @@ struct LandTransportKitTests {
             let routes = try await api.downloadBusRoutes()
             #expect(routes.count > 0)
         }
+        
+        @Test("Get Planned Bus Routes")
+        func getPlannedBusRoutes() async throws {
+            await setup()
+            let routes = try await api.downloadPlannedBusRoutes()
+            #expect(routes.count >= 0)
+        }
     }
     
     @Suite("Bus Stop Test")
