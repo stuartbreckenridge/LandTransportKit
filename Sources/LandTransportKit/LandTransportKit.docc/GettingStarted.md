@@ -11,15 +11,28 @@ Functionality available in `LandTransportKit` is surfaced via the ``LandTranspor
 - Obtain an API key from the Land Transport Authority (LTA) [here](https://datamall.lta.gov.sg/content/datamall/en/request-for-api.html).
 - Configure the ``LandTransportAPI`` as early as possible during your app's launch.
 
-#### Usage example (Swift UI)
+#### Example
 
 ```swift
-// Example to be added.
+import SwiftUI
+import LandTransportKit
+
+@main
+struct lta_example_appApp: App {
+    
+    let api = LandTransportAPI.shared
+    
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+                .task {
+                    await api.configure(apiKey: <#YOUR_API_KEY#>)
+                }
+        }
+        
+    }
+}
 ```
 
 
-#### Usage example (UIKit)
 
-```swift
-// Example to be added.
-```

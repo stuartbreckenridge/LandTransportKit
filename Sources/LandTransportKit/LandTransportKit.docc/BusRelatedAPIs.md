@@ -1,5 +1,10 @@
 # Bus Related APIs
 
+@Metadata {
+    @PageImage(purpose: icon, source: "bus.png")
+    @PageColor(green)
+}
+
 This article covers the bus related APIs supported by ``LandTransportKit``.
 
 ## Overview
@@ -31,3 +36,5 @@ final class SampleViewModel {
     }
 }
 ```
+
+

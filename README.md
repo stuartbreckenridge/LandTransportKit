@@ -6,8 +6,6 @@
 
 [![codecov](https://codecov.io/github/stuartbreckenridge/LandTransportKit/branch/main/graph/badge.svg?token=NW40O25ANG)](https://codecov.io/github/stuartbreckenridge/LandTransportKit)
 
-
-
 A Swift package for accessing real-time and static data from Singapore's Land Transport Authority (LTA) DataMall API. It provides strongly typed interfaces to common transport datasets such as Bus Arrival times, Traffic Images, Carpark Availability, Taxi Locations, and more.
 
 ## Features
@@ -45,6 +43,8 @@ Features supported by this package are as follows, with reference to the LTA Dat
 | 2.26               | TRAFFIC FLOW  | ❌           |
 | 2.27               | PLANNED BUS ROUTES            |  ✅           |
 
+Documentation is still being written.
+
 
 ## Requirements
 
@@ -68,6 +68,26 @@ struct lta_example_appApp: App {
                 }
         }
         
+    }
+}
+```
+
+Then, to obtain the latest arrival times for a stop (filtered, optionally, to a single service) you call ``LandTransportAPI/getBusArrivals(at:serviceNo:)``. In a SwiftUI app, 
+
+```swift
+import Foundation
+import LandTransportKit
+
+@Observable
+final class SampleViewModel {
+
+    var arrivals: BusArrivals? = nil
+    
+    let api = LandTransportAPI.shared
+
+    func getLatestArrivals(stopId: String, serviceNo: String?) async throws {
+        let arrivals = try await api.getBusArrivals(stopID, serviceNo)
+        self.arrivals = arrivals
     }
 }
 ```
