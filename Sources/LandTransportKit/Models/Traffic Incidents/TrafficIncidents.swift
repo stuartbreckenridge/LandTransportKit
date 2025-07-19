@@ -12,7 +12,7 @@ internal struct TrafficIncidents: Codable {
 
 public struct TrafficIncident: Codable, Identifiable {
     
-    public var id: String { "\(Latitude)" + "_" + "\(Longitude)" + "_" + \(`Type`)"  }
+    public var id: String { "\(Latitude)" + "_" + "\(Longitude)" }
     
     public let `Type`: String
     public let Latitude: Double
