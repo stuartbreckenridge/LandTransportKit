@@ -410,5 +410,26 @@ struct LandTransportKitTests {
         }
         
     }
+    
+    
+    @Suite("Traffic Speed Bands Test")
+    struct TrafficSpeedBandsTest {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Traffic Speed Band Test")
+        func getSpeedBands() async throws {
+            await setup()
+            let speedBands = try await api.downloadTrafficSpeedBands()
+            #expect(speedBands.count >= 0)
+        }
+        
+    }
      
 }

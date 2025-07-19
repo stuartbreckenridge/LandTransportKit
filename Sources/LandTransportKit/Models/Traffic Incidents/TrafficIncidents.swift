@@ -5,6 +5,9 @@
 //  Created by Stuart Breckenridge on 19/07/2025.
 //
 
+import Foundation
+import CoreLocation
+
 internal struct TrafficIncidents: Codable {
     let value: [TrafficIncident]
 }
@@ -31,4 +34,13 @@ public struct TrafficIncident: Codable, Identifiable, Sendable {
     public let Longitude: Double
     public let Message: String
     
+    public var location: CLLocation {
+        CLLocation(latitude: Latitude, longitude: Longitude)
+    }
+    
+    public var coordinate2D: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: Latitude, longitude: Longitude)
+    }
+    
 }
+

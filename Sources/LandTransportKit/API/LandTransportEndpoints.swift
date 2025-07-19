@@ -26,6 +26,7 @@ enum LandTransportEndpoints {
     case trainServiceAlerts
     case trafficImages
     case trafficIncidents
+    case trafficSpeedBands
     
     var url: URL {
         switch self {
@@ -65,6 +66,8 @@ enum LandTransportEndpoints {
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/Traffic-Imagesv2")!
         case .trafficIncidents:
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/TrafficIncidents")!
+        case .trafficSpeedBands:
+            return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/v3/TrafficSpeedBands")!
         }
     }
 }
