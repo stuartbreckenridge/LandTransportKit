@@ -32,7 +32,7 @@ import CoreLocation
 /// - `coordinate2D`: The bus's location as a `CLLocationCoordinate2D` value.
 public struct NextBus: Codable, Sendable, Identifiable {
     
-    public var id = UUID()
+    public let id: UUID
     
     public let OriginCode: String
     public let DestinationCode: String
@@ -44,6 +44,20 @@ public struct NextBus: Codable, Sendable, Identifiable {
     public let Feature: String
     public let `Type`: String
     public let Monitored: Int
+    
+    init(id: UUID = UUID(), OriginCode: String, DestinationCode: String, EstimatedArrival: String, Latitude: String, Longitude: String, VisitNumber: String, Load: String, Feature: String, `Type`: String,  Monitored: Int) {
+        self.id = id
+        self.OriginCode = OriginCode
+        self.DestinationCode = DestinationCode
+        self.EstimatedArrival = EstimatedArrival
+        self.Latitude = Latitude
+        self.Longitude = Longitude
+        self.VisitNumber = VisitNumber
+        self.Load = Load
+        self.Feature = Feature
+        self.`Type` = `Type`
+        self.Monitored = Monitored
+    }
     
     public var location: CLLocation? {
         if let lat = Double(Latitude), let lon = Double(Longitude) {
