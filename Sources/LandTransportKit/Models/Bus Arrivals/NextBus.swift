@@ -30,7 +30,9 @@ import CoreLocation
 /// Computed Properties:
 /// - `location`: The bus's location as a `CLLocation` object.
 /// - `coordinate2D`: The bus's location as a `CLLocationCoordinate2D` value.
-public struct NextBus: Codable, Sendable {
+public struct NextBus: Codable, Sendable, Identifiable {
+    
+    public var id = UUID()
     
     public let OriginCode: String
     public let DestinationCode: String
@@ -43,14 +45,14 @@ public struct NextBus: Codable, Sendable {
     public let `Type`: String
     public let Monitored: Int
     
-    var location: CLLocation? {
+    public var location: CLLocation? {
         if let lat = Double(Latitude), let lon = Double(Longitude) {
             return CLLocation(latitude: lat, longitude: lon)
         }
         return nil
     }
     
-    var coordinate2D: CLLocationCoordinate2D? {
+    public var coordinate2D: CLLocationCoordinate2D? {
         if let lat = Double(Latitude), let lon = Double(Longitude) {
             return CLLocationCoordinate2D(latitude: lat, longitude: lon)
         }
