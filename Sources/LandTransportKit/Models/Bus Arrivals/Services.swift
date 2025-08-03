@@ -27,8 +27,8 @@ import Foundation
 /// from a network API.
 ///
 ///  - seealso: ``LandTransportKit/NextBus``
-public struct Services: Codable, Identifiable, Sendable {
-    
+public struct Services: Codable, Identifiable, Sendable, Hashable, Equatable {
+ 
     public var id: String { ServiceNo }
         
     public let ServiceNo: String
@@ -36,5 +36,13 @@ public struct Services: Codable, Identifiable, Sendable {
     public let NextBus: NextBus
     public let NextBus2: NextBus
     public let NextBus3: NextBus
+    
+    public static func == (lhs: Services, rhs: Services) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
     
 }
