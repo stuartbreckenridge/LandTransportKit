@@ -4,7 +4,7 @@
 
 [![Test Status](https://github.com/stuartbreckenridge/LandTransportKit/actions/workflows/build.yml/badge.svg)](https://github.com/stuartbreckenridge/LandTransportKit/actions/workflows/build.yml)
 
-[![codecov](https://codecov.io/github/stuartbreckenridge/LandTransportKit/branch/main/graph/badge.svg?token=NW40O25ANG)](https://codecov.io/github/stuartbreckenridge/LandTransportKit)
+[![codecov](https://codecov.io/github/stuartbreckenridge/LandTransportKit/graph/badge.svg?token=NW40O25ANG)](https://codecov.io/github/stuartbreckenridge/LandTransportKit)
 
 A Swift package for accessing real-time and static data from Singapore's Land Transport Authority (LTA) DataMall API. It provides strongly typed interfaces to common transport datasets such as Bus Arrival times, Traffic Images, Carpark Availability, Taxi Locations, and more.
 
