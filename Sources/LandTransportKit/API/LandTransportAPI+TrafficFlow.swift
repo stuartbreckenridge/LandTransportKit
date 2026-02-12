@@ -10,15 +10,22 @@ import Foundation
 
 public extension LandTransportAPI {
     
-    /// Downloads the Traffic Flow ZIP file and returns the raw data and filename.
+    /// Downloads the Traffic Flow dataset and returns the decoded payload.
     ///
     /// This call requests the Traffic Flow endpoint, decodes the response to find the
-    /// ZIP file link, then downloads the ZIP payload.
+    /// ZIP file link, downloads the ZIP payload, and decodes it into `TrafficFlowData`.
     ///
-    /// - Returns: A tuple containing the ZIP `Data` and the downloaded filename.
+    /// - Returns: The decoded `TrafficFlowData` payload.
     /// - Throws: `URLError` if the request fails, if the response is rate-limited, or if
     ///   the ZIP link is missing.
-    func downloadTrafficFlow() async throws -> (Data, String) {
+    ///
+    /// Example usage:
+    /// ```swift
+    /// let api = LandTransportAPI(apiKey: "YOUR_KEY")
+    /// let trafficFlow = try await api.downloadTrafficFlow()
+    /// print(trafficFlow)
+    /// ```
+    func downloadTrafficFlow() async throws -> TrafficFlowData {
         var request = URLRequest(url: LandTransportEndpoints.trafficFlow.url)
         request.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
         
@@ -29,17 +36,17 @@ public extension LandTransportAPI {
                 throw URLError.init(.cannotLoadFromNetwork, userInfo: ["Reason" : "Rate Limited"])
             }
         }
-        let decoded = try JSONDecoder().decode(PassengerVolume.self, from: jsonData)
+        let decoded = try JSONDecoder().decode(TrafficFlow.self, from: jsonData)
         
         guard let link = decoded.value.first?.Link else {
             throw URLError(.cannotLoadFromNetwork)
         }
         
-        let zipRequest = URLRequest(url: URL(string: link)!)
+        let flowDataRequest = URLRequest(url: URL(string: link)!)
         
-        let (zipData, _) = try await URLSession.shared.data(for: zipRequest)
+        let (flowData, _) = try await URLSession.shared.data(for: flowDataRequest)
         
-        return (zipData, zipRequest.url!.lastPathComponent)
+        return try JSONDecoder().decode(TrafficFlowData.self, from: flowData)
     }
     
 }

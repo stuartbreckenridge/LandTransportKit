@@ -360,8 +360,8 @@ struct LandTransportKitTests {
         @Test("Traffic Light Tests")
         func getTrafficFlow() async throws {
             do  {
-                let (_, filename) = try await api.downloadTrafficFlow()
-                #expect(filename.hasSuffix(".zip"))
+                let data = try await api.downloadTrafficFlow()
+                #expect(data.Value.count > 0)
             } catch (let e as URLError) {
                 if e.userInfo["Reason"] as! String == "Rate Limited" {
                     print("Let this pass due to rate limiting.")
