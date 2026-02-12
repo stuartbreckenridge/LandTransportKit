@@ -346,6 +346,33 @@ struct LandTransportKitTests {
         
     }
     
+    @Suite("Traffic Flow Test")
+    struct TrafficFlowTest {
+        let api = LandTransportAPI.shared
+        
+        @Test("Set the API key")
+        func setup() async {
+            let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+            #expect(apiKey.count > 0)
+            await api.configure(apiKey: apiKey)
+        }
+        
+        @Test("Traffic Light Tests")
+        func getTrafficFlow() async throws {
+            do  {
+                let (_, filename) = try await api.downloadTrafficFlow()
+                #expect(filename.hasSuffix(".zip"))
+            } catch (let e as URLError) {
+                if e.userInfo["Reason"] as! String == "Rate Limited" {
+                    print("Let this pass due to rate limiting.")
+                }
+            } catch {
+                #expect(Bool(false))
+            }
+        }
+        
+    }
+    
     @Suite("Road Events Tests")
     struct RoadOpeningsTest {
         let api = LandTransportAPI.shared

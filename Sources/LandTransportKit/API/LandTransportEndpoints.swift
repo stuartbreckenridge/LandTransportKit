@@ -29,6 +29,7 @@ enum LandTransportEndpoints {
     case taxiAvailability
     case taxiStands
     case trainServiceAlerts
+    case trafficFlow
     case trafficImages
     case trafficIncidents
     case trafficSpeedBands
@@ -86,6 +87,8 @@ enum LandTransportEndpoints {
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/PCDForecast")!
         case .plannedBusRoute:
             return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/PlannedBusRoutes")!
+        case .trafficFlow:
+            return URL(string: "https://datamall2.mytransport.sg/ltaodataservice/TrafficFlow")!
         }
     }
 }
