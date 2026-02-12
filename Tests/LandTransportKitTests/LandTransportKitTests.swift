@@ -357,7 +357,7 @@ struct LandTransportKitTests {
             await api.configure(apiKey: apiKey)
         }
         
-        @Test("Traffic Light Tests")
+        @Test("Traffic Flow Download Test")
         func getTrafficFlow() async throws {
             do  {
                 let data = try await api.downloadTrafficFlow()
@@ -389,8 +389,10 @@ struct LandTransportKitTests {
             await setup()
             let openings = try await api.downloadRoadOpenings()
             #expect(openings.count >= 0)
-            let opening = openings[0]
-            #expect(opening.id == opening.EventID)
+            if openings.count > 0 {
+                let opening = openings[0]
+                #expect(opening.id == opening.EventID)
+            }
         }
         
         
@@ -399,8 +401,11 @@ struct LandTransportKitTests {
             await setup()
             let works = try await api.downloadRoadWorks()
             #expect(works.count >= 0)
-            let work = works[0]
-            #expect(work.id == work.EventID)
+            if works.count > 0 {
+                let work = works[0]
+                #expect(work.id == work.EventID)
+            }
+            
         }
     }
     
