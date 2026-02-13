@@ -26,9 +26,9 @@ import Foundation
 ///   - `plrt`: Punggol LRT
 ///   - `tel`: Thomson-East Coast Line
 ///
-/// Use the `code` property to get the line’s abbreviation and `description` for a
+/// Use the `code` property to get the line's abbreviation and `description` for a
 /// human-readable name.
-public enum TrainLines: CaseIterable {
+public enum TrainLines: CaseIterable, Sendable {
     case ccl         // Circle Line
     case cel         // Circle Line Extension
     case cgl         // Changi Extension
@@ -82,42 +82,54 @@ public extension LandTransportAPI {
     /// Downloads the real-time crowd density data for a specific train or LRT line.
     ///
     /// This asynchronous function retrieves crowd density information for all stations on the specified line.
-    /// The data is fetched from the Land Transport Authority's real-time endpoint and decoded into an array of `RealTimeDensity` values.
+    /// The data is fetched from the Land Transport Authority's real-time endpoint and decoded into an array of ``RealTimeDensity`` values.
     ///
-    /// - Parameter line: The `TrainLines` case representing the MRT or LRT line to fetch crowd density data for.
-    /// - Returns: An array of `RealTimeDensity` objects, each representing real-time crowd density for a station on the specified line.
-    /// - Throws: An error if the network request fails or if the data cannot be decoded into the expected type.
+    /// - Parameter line: The ``TrainLines`` case representing the MRT or LRT line to fetch crowd density data for.
+    ///
+    /// - Returns: An array of ``RealTimeDensity`` objects, each representing real-time crowd density for a station on the specified line.
+    ///
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/invalidURL`` if the URL cannot be constructed.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
     func downloadRealTimeDensity(for line: TrainLines) async throws -> [RealTimeDensity] {
         var urlComponents = URLComponents(url: LandTransportEndpoints.stationCrowdDensityRealTime.url, resolvingAgainstBaseURL: false)
         urlComponents?.queryItems = [URLQueryItem(name: "TrainLine", value: line.code)]
         
-        var urlRequest = URLRequest(url: urlComponents!.url!)
-        urlRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
+        guard let url = urlComponents?.url else {
+            throw LandTransportAPIError.invalidURL
+        }
         
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        let decodedData = try JSONDecoder().decode(StationCrowdDensityRealTime.self, from: data)
-        return decodedData.value
+        let request = try authenticatedRequest(for: url)
+        let response = try await performRequest(request, decoding: StationCrowdDensityRealTime.self)
+        return response.value
     }
     
     /// Downloads the forecast crowd density data for a specific train or LRT line.
     ///
     /// This asynchronous function retrieves forecasted crowd density information for all stations on the specified line.
-    /// The data is fetched from the Land Transport Authority's forecast endpoint and decoded into an array of `ForecastDensity` values.
+    /// The data is fetched from the Land Transport Authority's forecast endpoint and decoded into an array of ``ForecastDensity`` values.
     ///
-    /// - Parameter line: The `TrainLines` case representing the MRT or LRT line to fetch forecast crowd density data for.
-    /// - Returns: An array of `ForecastDensity` objects, each representing forecasted crowd density for a station on the specified line.
-    /// - Throws: An error if the network request fails or if the data cannot be decoded into the expected type.
+    /// - Parameter line: The ``TrainLines`` case representing the MRT or LRT line to fetch forecast crowd density data for.
+    ///
+    /// - Returns: An array of ``ForecastDensity`` objects, each representing forecasted crowd density for a station on the specified line.
+    ///
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/invalidURL`` if the URL cannot be constructed.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
     func downloadForecastDensity(for line: TrainLines) async throws -> [ForecastDensity] {
         var urlComponents = URLComponents(url: LandTransportEndpoints.stationCrowdDensityForecast.url, resolvingAgainstBaseURL: false)
         urlComponents?.queryItems = [URLQueryItem(name: "TrainLine", value: line.code)]
         
-        var urlRequest = URLRequest(url: urlComponents!.url!)
-        urlRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
+        guard let url = urlComponents?.url else {
+            throw LandTransportAPIError.invalidURL
+        }
         
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        let decodedData = try JSONDecoder().decode(StationCrowdDensityForecast.self, from: data)
-        return decodedData.value
+        let request = try authenticatedRequest(for: url)
+        let response = try await performRequest(request, decoding: StationCrowdDensityForecast.self)
+        return response.value
     }
-    
-    
 }

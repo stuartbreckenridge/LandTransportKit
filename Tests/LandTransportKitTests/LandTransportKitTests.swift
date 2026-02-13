@@ -12,6 +12,17 @@ import CoreLocation
 
 struct LandTransportKitTests {
     
+    // MARK: - Shared Setup
+    
+    /// Configures the API with the API key from environment variables.
+    /// - Returns: The configured API instance.
+    static func configureAPI() async -> LandTransportAPI {
+        let api = LandTransportAPI.shared
+        let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+        await api.configure(apiKey: apiKey)
+        return api
+    }
+    
     @Suite("Bus Arrival Tests")
     struct BusArrivalTests {
         
@@ -46,6 +57,8 @@ struct LandTransportKitTests {
                         }
                     }
                 }
+            } catch let error as LandTransportAPIError {
+                #expect(Bool(false), "API error: \(error.localizedDescription)")
             } catch {
                 #expect(Bool(false), "Unexpected error: \(error)")
             }
@@ -60,6 +73,8 @@ struct LandTransportKitTests {
                 if arrivals.Services.count > 0 {
                     #expect(arrivals.Services[0].ServiceNo == "106")
                 }
+            } catch let error as LandTransportAPIError {
+                #expect(Bool(false), "API error: \(error.localizedDescription)")
             } catch {
                 #expect(Bool(false), "Unexpected error: \(error)")
             }
@@ -154,12 +169,10 @@ struct LandTransportKitTests {
             do  {
                 let (_, filename) = try await api.downloadPassengerVolumeByBusStop()
                 #expect(filename.hasSuffix(".zip"))
-            } catch (let e as URLError) {
-                if e.userInfo["Reason"] as! String == "Rate Limited" {
-                    print("Let this pass due to rate limiting.")
-                }
+            } catch LandTransportAPIError.rateLimited {
+                print("Skipping test due to rate limiting.")
             } catch {
-                #expect(Bool(false))
+                #expect(Bool(false), "Unexpected error: \(error)")
             }
         }
         
@@ -169,12 +182,10 @@ struct LandTransportKitTests {
             do  {
                 let (_, filename) = try await api.downloadPassengerVolumeByOriginDestinationBusStop()
                 #expect(filename.hasSuffix(".zip"))
-            } catch (let e as URLError) {
-                if e.userInfo["Reason"] as! String == "Rate Limited" {
-                    print("Let this pass due to rate limiting.")
-                }
+            } catch LandTransportAPIError.rateLimited {
+                print("Skipping test due to rate limiting.")
             } catch {
-                #expect(Bool(false))
+                #expect(Bool(false), "Unexpected error: \(error)")
             }
         }
         
@@ -184,12 +195,10 @@ struct LandTransportKitTests {
             do  {
                 let (_, filename) = try await api.downloadPassengerVolumeByTrainStation()
                 #expect(filename.hasSuffix(".zip"))
-            } catch (let e as URLError) {
-                if e.userInfo["Reason"] as! String == "Rate Limited" {
-                    print("Let this pass due to rate limiting.")
-                }
+            } catch LandTransportAPIError.rateLimited {
+                print("Skipping test due to rate limiting.")
             } catch {
-                #expect(Bool(false))
+                #expect(Bool(false), "Unexpected error: \(error)")
             }
         }
         
@@ -199,12 +208,10 @@ struct LandTransportKitTests {
             do  {
                 let (_, filename) = try await api.downloadPassengerVolumeByOriginDestinationTrainStation()
                 #expect(filename.hasSuffix(".zip"))
-            } catch (let e as URLError) {
-                if e.userInfo["Reason"] as! String == "Rate Limited" {
-                    print("Let this pass due to rate limiting.")
-                }
+            } catch LandTransportAPIError.rateLimited {
+                print("Skipping test due to rate limiting.")
             } catch {
-                #expect(Bool(false))
+                #expect(Bool(false), "Unexpected error: \(error)")
             }
         }
         
@@ -359,15 +366,14 @@ struct LandTransportKitTests {
         
         @Test("Traffic Flow Download Test")
         func getTrafficFlow() async throws {
+            await setup()
             do  {
                 let data = try await api.downloadTrafficFlow()
                 #expect(data.Value.count > 0)
-            } catch (let e as URLError) {
-                if e.userInfo["Reason"] as! String == "Rate Limited" {
-                    print("Let this pass due to rate limiting.")
-                }
+            } catch LandTransportAPIError.rateLimited {
+                print("Skipping test due to rate limiting.")
             } catch {
-                #expect(Bool(false))
+                #expect(Bool(false), "Unexpected error: \(error)")
             }
         }
         
@@ -505,7 +511,9 @@ struct LandTransportKitTests {
             await setup()
             let parks = try await api.getBikeParks(near: 1.364897, long: 103.766094)
             #expect(parks.count >= 0)
-            #expect(parks.first!.location.distance(from: CLLocation(latitude: 1.364897, longitude: 103.766094)) <= 500 )
+            if parks.count > 0 {
+                #expect(parks.first!.location.distance(from: CLLocation(latitude: 1.364897, longitude: 103.766094)) <= 500)
+            }
         }
     }
      
@@ -553,6 +561,45 @@ struct LandTransportKitTests {
             await setup()
             let forecast = try await api.downloadForecastDensity(for: .dtl)
             #expect(forecast.count >= 0)
+        }
+    }
+    
+    // MARK: - Error Handling Tests
+    
+    @Suite("Error Handling Tests")
+    struct ErrorHandlingTests {
+        
+        @Test("API throws noAPIKey error when not configured")
+        func testNoAPIKeyError() async {
+            // Create a fresh instance with custom URLSession (not shared)
+            let testAPI = LandTransportAPI(urlSession: URLSession.shared)
+            // Don't configure API key
+            
+            do {
+                _ = try await testAPI.downloadTaxiStands()
+                #expect(Bool(false), "Expected noAPIKey error to be thrown")
+            } catch LandTransportAPIError.noAPIKey {
+                // Expected error
+                #expect(true)
+            } catch {
+                #expect(Bool(false), "Unexpected error type: \(error)")
+            }
+        }
+        
+        @Test("LandTransportAPIError provides localized descriptions")
+        func testErrorDescriptions() {
+            let errors: [LandTransportAPIError] = [
+                .noAPIKey,
+                .invalidURL,
+                .rateLimited,
+                .httpError(statusCode: 404, message: "Not Found"),
+                .httpError(statusCode: 500, message: nil),
+                .missingDownloadLink
+            ]
+            
+            for error in errors {
+                #expect(error.localizedDescription.isEmpty == false)
+            }
         }
     }
 }

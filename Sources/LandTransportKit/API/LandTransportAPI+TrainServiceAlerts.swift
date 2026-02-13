@@ -9,14 +9,16 @@ import Foundation
 
 public extension LandTransportAPI {
     
-    
-    
     /// Downloads the latest train service alerts from the Land Transport API.
     ///
-    /// This asynchronous function sends a network request to the train service alerts endpoint and decodes the response into an array of `TrainServiceAlert` objects.
+    /// This asynchronous function sends a network request to the train service alerts endpoint and decodes the response into a ``TrainServiceAlert`` object.
     ///
-    /// - Returns: An array of `TrainServiceAlert` representing the current train service alerts.
-    /// - Throws: An error of type `URLError` if the network request fails, or a decoding error if the response cannot be parsed.
+    /// - Returns: A ``TrainServiceAlert`` representing the current train service alerts.
+    ///
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
     ///
     /// Example usage:
     /// ```swift
@@ -28,12 +30,8 @@ public extension LandTransportAPI {
     /// }
     /// ```
     func downloadTrainServiceAlerts() async throws -> TrainServiceAlert {
-        var urlRequest = URLRequest(url: LandTransportEndpoints.trainServiceAlerts.url)
-        urlRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        let alerts = try JSONDecoder().decode(TrainServiceAlerts.self, from: data)
-        return alerts.value
+        let request = try authenticatedRequest(for: LandTransportEndpoints.trainServiceAlerts.url)
+        let response = try await performRequest(request, decoding: TrainServiceAlerts.self)
+        return response.value
     }
-    
-    
 }

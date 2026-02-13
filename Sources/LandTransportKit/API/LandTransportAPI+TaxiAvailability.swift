@@ -16,17 +16,15 @@ public extension LandTransportAPI {
     /// Land Transport Authority's API endpoint. The response includes the
     /// coordinates of all available taxis at the time of the request.
     ///
-    /// - Returns: An array of `TaxiAvailability` representing each available taxi's location.
-    /// - Throws: An error if the network request fails or the response cannot be decoded.
+    /// - Returns: An array of ``TaxiAvailability`` representing each available taxi's location.
     ///
-    /// The request uses the `AccountKey` HTTP header for authentication.
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
     func downloadTaxiAvailability() async throws -> [TaxiAvailability] {
-        var urlRequest = URLRequest(url: LandTransportEndpoints.taxiAvailability.url)
-        urlRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        let taxis = try JSONDecoder().decode(Taxis.self, from: data)
-        return taxis.value
+        let request = try authenticatedRequest(for: LandTransportEndpoints.taxiAvailability.url)
+        let response = try await performRequest(request, decoding: Taxis.self)
+        return response.value
     }
-    
-    
 }

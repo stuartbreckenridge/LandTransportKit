@@ -12,34 +12,23 @@ public extension LandTransportAPI {
 
     /// Downloads car park availability data from the Land Transport API.
     ///
-    /// This method fetches car park availability in batches and accumulates the results, handling pagination
-    /// by recursively requesting more data if the downloaded batch size is 500 (the API pagination limit).
+    /// This method fetches car park availability in batches and accumulates the results,
+    /// handling pagination automatically using an iterative approach.
     ///
-    /// - Parameters:
-    ///   - carParks: An array of `CarPark` objects to be appended with newly downloaded car park availability data. Typically, this should be an empty array on the initial call.
-    ///   - skip: The number of records to skip in the API request, used for pagination. Defaults to `0`. You usually do not need to specify this parameter directly.
-    /// - Returns: An array of all `CarPark` objects fetched from the API, including those passed in `carParks` and all paginated results.
-    /// - Throws: An error if the network request fails or decoding the response is unsuccessful.
-    /// - Note: The method is asynchronous and may perform multiple recursive network requests if the API returns more records.
-    func downloadCarParkAvailability(_ carParks: [CarPark] = [], skip: Int = 0) async throws -> [CarPark] {
-        var currentCarParks = carParks
-    
-        var urlComponents = URLComponents(url: LandTransportEndpoints.carParkAvailability.url, resolvingAgainstBaseURL: false)
-        urlComponents?.queryItems = [URLQueryItem(name: "$skip", value: String(skip))]
-        
-        var urlRequest = URLRequest(url: urlComponents!.url!)
-        urlRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        let downloadedCarParks = try JSONDecoder().decode(CarParkAvailability.self, from: data).value
-        
-        currentCarParks.append(contentsOf: downloadedCarParks)
-        
-        if downloadedCarParks.count == 500 {
-            return try await downloadCarParkAvailability(currentCarParks, skip: skip + 500)
-        } else {
-            return currentCarParks
-        }
+    /// - Returns: An array of all ``CarPark`` objects fetched from the API.
+    ///
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/invalidURL`` if the URL cannot be constructed.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
+    ///
+    /// - Note: The method is asynchronous and may perform multiple network requests if the API returns more records.
+    func downloadCarParkAvailability() async throws -> [CarPark] {
+        try await downloadPaginatedData(
+            from: .carParkAvailability,
+            wrapperType: CarParkAvailability.self,
+            valueKeyPath: \.value
+        )
     }
-    
-    
 }

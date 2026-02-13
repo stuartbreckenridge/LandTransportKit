@@ -19,32 +19,16 @@ public extension LandTransportAPI {
     /// 2. It then downloads the zipped  file from the provided link as `Data`.
     ///
     /// - Returns: The raw zip file data containing passenger volume statistics by bus stop and the file name.
-    /// - Throws: An error if the network request fails, the response cannot be decoded,
-    ///           or if the expected link to the Zip file is not found.
     ///
-    /// - Warning: This is a rate-limited API. Excessive requests may result in a 500 error response.
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/missingDownloadLink`` if the download link is not found in the response.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
+    ///
+    /// - Warning: This is a rate-limited API. Excessive requests may result in a rate limit error.
     func downloadPassengerVolumeByBusStop() async throws -> (Data, String) {
-        var request = URLRequest(url: LandTransportEndpoints.passengerVolumeByBusStop.url)
-        request.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
-        
-        let (jsonData, response) = try await URLSession.shared.data(for: request)
-        if let httpResponse = response as? HTTPURLResponse {
-            if httpResponse.statusCode == 500 {
-                // Rate limited requests throw a 500 error.
-                throw URLError.init(.cannotLoadFromNetwork, userInfo: ["Reason" : "Rate Limited"])
-            }
-        }
-        let decoded = try JSONDecoder().decode(PassengerVolume.self, from: jsonData)
-        
-        guard let link = decoded.value.first?.Link else {
-            throw URLError(.cannotLoadFromNetwork)
-        }
-        
-        let zipRequest = URLRequest(url: URL(string: link)!)
-        
-        let (zipData, _) = try await URLSession.shared.data(for: zipRequest)
-        
-        return (zipData, zipRequest.url!.lastPathComponent)
+        try await downloadPassengerVolumeData(from: .passengerVolumeByBusStop)
     }
     
     
@@ -56,31 +40,16 @@ public extension LandTransportAPI {
     /// 2. It then downloads the zipped file from the provided link as `Data`.
     ///
     /// - Returns: The raw zip file data containing passenger volume statistics by origin-destination bus stop pairs and the file name.
-    /// - Throws: An error if the network request fails, the response cannot be decoded, or if the expected link to the zip file is not found.
     ///
-    /// - Warning: This is a rate-limited API. Excessive requests may result in a 500 error response.
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/missingDownloadLink`` if the download link is not found in the response.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
+    ///
+    /// - Warning: This is a rate-limited API. Excessive requests may result in a rate limit error.
     func downloadPassengerVolumeByOriginDestinationBusStop() async throws -> (Data, String) {
-        var request = URLRequest(url: LandTransportEndpoints.passengerVolumeByOriginDestinationBusStops.url)
-        request.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
-        
-        let (jsonData, response) = try await URLSession.shared.data(for: request)
-        if let httpResponse = response as? HTTPURLResponse {
-            if httpResponse.statusCode == 500 {
-                // Rate limited requests throw a 500 error.
-                throw URLError.init(.cannotLoadFromNetwork, userInfo: ["Reason" : "Rate Limited"])
-            }
-        }
-        let decoded = try JSONDecoder().decode(PassengerVolume.self, from: jsonData)
-        
-        guard let link = decoded.value.first?.Link else {
-            throw URLError(.cannotLoadFromNetwork)
-        }
-        
-        let zipRequest = URLRequest(url: URL(string: link)!)
-        
-        let (zipData, _) = try await URLSession.shared.data(for: zipRequest)
-        
-        return (zipData, zipRequest.url!.lastPathComponent)
+        try await downloadPassengerVolumeData(from: .passengerVolumeByOriginDestinationBusStops)
     }
     
     /// Downloads tap in and tap out passenger volume data by origin and destination train stations, provided in a ZIP archive (enclosing a CSV file).
@@ -90,33 +59,17 @@ public extension LandTransportAPI {
     /// 2. Downloads the ZIP file from the obtained link as `Data`.
     ///
     /// - Returns: A tuple containing the raw ZIP file data with passenger volume statistics by origin-destination train station pairs, and the file name.
-    /// - Throws: An error if the network request fails, the response cannot be decoded, or if the expected link to the ZIP file is not found.
+    ///
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/missingDownloadLink`` if the download link is not found in the response.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
     /// 
-    /// - Warning: This is a rate-limited API. Excessive requests may result in a 500 error response.
+    /// - Warning: This is a rate-limited API. Excessive requests may result in a rate limit error.
     func downloadPassengerVolumeByOriginDestinationTrainStation() async throws -> (Data, String) {
-        var request = URLRequest(url: LandTransportEndpoints.passengerVolumeByOriginDestinationTrainStation.url)
-        request.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
-        
-        let (jsonData, response) = try await URLSession.shared.data(for: request)
-        if let httpResponse = response as? HTTPURLResponse {
-            if httpResponse.statusCode == 500 {
-                // Rate limited requests throw a 500 error.
-                throw URLError.init(.cannotLoadFromNetwork, userInfo: ["Reason" : "Rate Limited"])
-            }
-        }
-        let decoded = try JSONDecoder().decode(PassengerVolume.self, from: jsonData)
-        
-        guard let link = decoded.value.first?.Link else {
-            throw URLError(.cannotLoadFromNetwork)
-        }
-        
-        let zipRequest = URLRequest(url: URL(string: link)!)
-        
-        let (zipData, _) = try await URLSession.shared.data(for: zipRequest)
-        
-        return (zipData, zipRequest.url!.lastPathComponent)
+        try await downloadPassengerVolumeData(from: .passengerVolumeByOriginDestinationTrainStation)
     }
-    
     
     
     /// Downloads tap in and tap out passenger volume data by train station, provided in a ZIP archive (enclosing a CSV file).
@@ -126,33 +79,45 @@ public extension LandTransportAPI {
     /// 2. Downloads the ZIP file from the obtained link as `Data`.
     ///
     /// - Returns: A tuple containing the raw ZIP file data with passenger volume statistics by train station, and the file name.
-    /// - Throws: An error if the network request fails, the response cannot be decoded, or if the expected link to the ZIP file is not found.
     ///
-    /// - Warning: This is a rate-limited API. Excessive requests may result in a 500 error response.
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/missingDownloadLink`` if the download link is not found in the response.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
+    ///
+    /// - Warning: This is a rate-limited API. Excessive requests may result in a rate limit error.
     func downloadPassengerVolumeByTrainStation() async throws -> (Data, String) {
-        var request = URLRequest(url: LandTransportEndpoints.passengerVolumeByTrainStation.url)
-        request.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
-        
-        let (jsonData, response) = try await URLSession.shared.data(for: request)
-        if let httpResponse = response as? HTTPURLResponse {
-            if httpResponse.statusCode == 500 {
-                // Rate limited requests throw a 500 error.
-                throw URLError.init(.cannotLoadFromNetwork, userInfo: ["Reason" : "Rate Limited"])
-            }
-        }
-        let decoded = try JSONDecoder().decode(PassengerVolume.self, from: jsonData)
-        
-        guard let link = decoded.value.first?.Link else {
-            throw URLError(.cannotLoadFromNetwork)
-        }
-        
-        let zipRequest = URLRequest(url: URL(string: link)!)
-        
-        let (zipData, _) = try await URLSession.shared.data(for: zipRequest)
-        
-        return (zipData, zipRequest.url!.lastPathComponent)
+        try await downloadPassengerVolumeData(from: .passengerVolumeByTrainStation)
     }
     
+    // MARK: - Private Helper
     
-    
+    /// Internal helper method to download passenger volume data from any passenger volume endpoint.
+    ///
+    /// - Parameter endpoint: The endpoint to fetch data from.
+    /// - Returns: A tuple containing the ZIP file data and the filename.
+    /// - Throws: ``LandTransportAPIError`` for various failure conditions.
+    private func downloadPassengerVolumeData(from endpoint: LandTransportEndpoints) async throws -> (Data, String) {
+        let request = try authenticatedRequest(for: endpoint.url)
+        let decoded = try await performRequest(request, decoding: PassengerVolume.self)
+        
+        guard let link = decoded.value.first?.Link, let downloadURL = URL(string: link) else {
+            throw LandTransportAPIError.missingDownloadLink
+        }
+        
+        let zipData: Data
+        let zipResponse: URLResponse
+        
+        do {
+            (zipData, zipResponse) = try await urlSession.data(from: downloadURL)
+        } catch let error as URLError {
+            throw LandTransportAPIError.networkError(underlying: error)
+        }
+        
+        try checkResponse(zipResponse)
+        
+        let filename = downloadURL.lastPathComponent
+        return (zipData, filename)
+    }
 }

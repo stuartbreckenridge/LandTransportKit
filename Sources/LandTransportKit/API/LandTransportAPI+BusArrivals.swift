@@ -17,7 +17,11 @@ public extension LandTransportAPI {
     ///
     /// - Returns: A ``BusArrivals`` object containing the arrival information for the specified stop and/or service.
     ///
-    /// - Throws: An error if the network request fails or the response cannot be decoded.
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/invalidURL`` if the URL cannot be constructed.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
     ///
     /// - Precondition: You must call ``configure(apiKey:)`` with a valid API key before using this method.
     ///
@@ -25,17 +29,16 @@ public extension LandTransportAPI {
     func getBusArrivals(at stopId: String, serviceNo: String? = nil) async throws -> BusArrivals {
         var urlComponents = URLComponents(url: LandTransportEndpoints.busArrivals.url, resolvingAgainstBaseURL: false)
         urlComponents?.queryItems = [URLQueryItem(name: "BusStopCode", value: stopId)]
-        if serviceNo != nil {
-            urlComponents?.queryItems?.append(URLQueryItem(name: "ServiceNo", value: serviceNo!))
-        }
-        var urlRequest = URLRequest(url: urlComponents!.url!)
-        urlRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
         
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        let decodedData = try JSONDecoder().decode(BusArrivals.self, from: data)
-        return decodedData
+        if let serviceNo = serviceNo {
+            urlComponents?.queryItems?.append(URLQueryItem(name: "ServiceNo", value: serviceNo))
+        }
+        
+        guard let url = urlComponents?.url else {
+            throw LandTransportAPIError.invalidURL
+        }
+        
+        let request = try authenticatedRequest(for: url)
+        return try await performRequest(request, decoding: BusArrivals.self)
     }
-    
-    
-    
 }

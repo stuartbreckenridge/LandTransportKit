@@ -12,21 +12,22 @@ public extension LandTransportAPI {
     /// Downloads the estimated travel times for various routes from the Land Transport API.
     ///
     /// This asynchronous function sends a request to the API's estimated travel time endpoint,
-    /// decodes the JSON response into an array of `EstimatedTravelTime` objects, and returns them.
+    /// decodes the JSON response into an array of ``EstimatedTravelTime`` objects, and returns them.
     ///
-    /// - Returns: An array of `EstimatedTravelTime` representing the current estimated travel times.
-    /// - Throws: An error if the network request fails or if decoding the response is unsuccessful.
+    /// - Returns: An array of ``EstimatedTravelTime`` representing the current estimated travel times.
+    ///
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
     ///
     /// Example usage:
     /// ```
     /// let times = try await api.downloadEstimatedTravelTimes()
     /// ```
     func downloadEstimatedTravelTimes() async throws -> [EstimatedTravelTime] {
-        var urlRequest = URLRequest(url: LandTransportEndpoints.estimatedTravelTime.url)
-        urlRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        let travelTimes = try JSONDecoder().decode(EstimatedTravelTimes.self, from: data)
-        return travelTimes.value
+        let request = try authenticatedRequest(for: LandTransportEndpoints.estimatedTravelTime.url)
+        let response = try await performRequest(request, decoding: EstimatedTravelTimes.self)
+        return response.value
     }
-    
 }

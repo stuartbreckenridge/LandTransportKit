@@ -12,33 +12,21 @@ public extension LandTransportAPI {
     
     /// Downloads bus services from the Land Transport API.
     ///
-    /// - Parameters:
-    ///   - busServices: An array of `BusService` objects to which newly fetched services will be appended. Defaults to an empty array. This parameter is used internally for recursive accumulation of paged results and is not typically provided by callers.
-    ///   - skip: The offset used for paginated requests. Defaults to `0`. This parameter is used internally for recursive paging and is not typically provided by callers.
+    /// This method fetches all available bus services from the API, handling pagination automatically
+    /// by iteratively requesting additional data until all services have been retrieved.
     ///
-    /// - Returns: An array of all available `BusService` objects retrieved from the API.
+    /// - Returns: An array of all available ``BusService`` objects retrieved from the API.
     ///
-    /// - Throws: An error if the network request fails or the response data cannot be decoded.
-    ///
-    /// This method fetches bus services from the API, handling paging automatically by recursively requesting additional data until all services have been retrieved (when fewer than 500 results are returned in a single page).
-    func downloadBusServices(_ busServices: [BusService] = [], skip: Int = 0) async throws -> [BusService] {
-        var services = busServices
-        var urlComponents = URLComponents(url: LandTransportEndpoints.busServices.url, resolvingAgainstBaseURL: false)
-        urlComponents?.queryItems = [URLQueryItem(name: "$skip", value: String(skip))]
-        
-        var urlRequest = URLRequest(url: urlComponents!.url!)
-        urlRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
-        
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        let decodedData = try JSONDecoder().decode(BusServices.self, from: data)
-        services.append(contentsOf: decodedData.value)
-        if decodedData.value.count == 500 {
-            return try await downloadBusServices(services, skip: skip + 500)
-        } else {
-            return services
-        }
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/invalidURL`` if the URL cannot be constructed.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
+    func downloadBusServices() async throws -> [BusService] {
+        try await downloadPaginatedData(
+            from: .busServices,
+            wrapperType: BusServices.self,
+            valueKeyPath: \.value
+        )
     }
-    
-    
-    
 }

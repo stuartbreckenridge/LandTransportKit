@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  LandTransportAPI+TrafficFlow.swift
 //  LandTransportKit
 //
 //  Created by Stuart Breckenridge on 12/02/2026.
@@ -13,40 +13,46 @@ public extension LandTransportAPI {
     /// Downloads the Traffic Flow dataset and returns the decoded payload.
     ///
     /// This call requests the Traffic Flow endpoint, decodes the response to find the
-    /// ZIP file link, downloads the ZIP payload, and decodes it into `TrafficFlowData`.
+    /// ZIP file link, downloads the ZIP payload, and decodes it into ``TrafficFlowData``.
     ///
-    /// - Returns: The decoded `TrafficFlowData` payload.
-    /// - Throws: `URLError` if the request fails, if the response is rate-limited, or if
-    ///   the ZIP link is missing.
+    /// - Returns: The decoded ``TrafficFlowData`` payload.
+    ///
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/missingDownloadLink`` if the download link is not found in the response.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
     ///
     /// Example usage:
     /// ```swift
-    /// let api = LandTransportAPI(apiKey: "YOUR_KEY")
+    /// let api = LandTransportAPI.shared
+    /// await api.configure(apiKey: "YOUR_KEY")
     /// let trafficFlow = try await api.downloadTrafficFlow()
     /// print(trafficFlow)
     /// ```
     func downloadTrafficFlow() async throws -> TrafficFlowData {
-        var request = URLRequest(url: LandTransportEndpoints.trafficFlow.url)
-        request.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
+        let request = try authenticatedRequest(for: LandTransportEndpoints.trafficFlow.url)
+        let decoded = try await performRequest(request, decoding: TrafficFlow.self)
         
-        let (jsonData, response) = try await URLSession.shared.data(for: request)
-        if let httpResponse = response as? HTTPURLResponse {
-            if httpResponse.statusCode == 500 {
-                // Rate limited requests throw a 500 error.
-                throw URLError.init(.cannotLoadFromNetwork, userInfo: ["Reason" : "Rate Limited"])
-            }
-        }
-        let decoded = try JSONDecoder().decode(TrafficFlow.self, from: jsonData)
-        
-        guard let link = decoded.value.first?.Link else {
-            throw URLError(.cannotLoadFromNetwork)
+        guard let link = decoded.value.first?.Link, let downloadURL = URL(string: link) else {
+            throw LandTransportAPIError.missingDownloadLink
         }
         
-        let flowDataRequest = URLRequest(url: URL(string: link)!)
+        let flowData: Data
+        let flowResponse: URLResponse
         
-        let (flowData, _) = try await URLSession.shared.data(for: flowDataRequest)
+        do {
+            (flowData, flowResponse) = try await urlSession.data(from: downloadURL)
+        } catch let error as URLError {
+            throw LandTransportAPIError.networkError(underlying: error)
+        }
         
-        return try JSONDecoder().decode(TrafficFlowData.self, from: flowData)
+        try checkResponse(flowResponse)
+        
+        do {
+            return try JSONDecoder().decode(TrafficFlowData.self, from: flowData)
+        } catch let error as DecodingError {
+            throw LandTransportAPIError.decodingFailed(underlying: error)
+        }
     }
-    
 }

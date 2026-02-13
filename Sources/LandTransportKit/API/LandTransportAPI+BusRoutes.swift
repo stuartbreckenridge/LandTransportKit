@@ -12,47 +12,37 @@ public extension LandTransportAPI {
     
     /// Downloads bus route information from the Land Transport API.
     ///
-    /// This method retrieves all available `BusRoute` records, handling pagination automatically
-    /// by recursively fetching additional pages if necessary. You can optionally pass in a list of
-    /// previously downloaded routes and a skip value to continue retrieving from where you left off.
+    /// This method retrieves all available ``BusRoute`` records, handling pagination automatically
+    /// by iteratively fetching additional pages until all routes are retrieved.
     ///
-    /// - Parameters:
-    ///   - routes: An array of `BusRoute` objects that have already been downloaded (used for pagination). Defaults to an empty array.
-    ///   - skip: The number of records to skip for pagination. Defaults to 0. This parameter is used internally for recursive paging and is not typically provided by callers.
-    /// - Returns: An array of all available `BusRoute` objects.
-    /// - Throws: An error if the network request or JSON decoding fails.
-    func downloadBusRoutes(_ routes: [BusRoute] = [], skip: Int = 0) async throws -> [BusRoute] {
-        var downloadedRoutes = routes
-        var urlComponents = URLComponents(url: LandTransportEndpoints.busRoutes.url, resolvingAgainstBaseURL: false)
-        urlComponents?.queryItems = [URLQueryItem(name: "$skip", value: String(skip))]
-        
-        var urlRequest = URLRequest(url: urlComponents!.url!)
-        urlRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
-        
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        let decodedData = try JSONDecoder().decode(BusRoutes.self, from: data)
-        downloadedRoutes.append(contentsOf: decodedData.value)
-        if decodedData.value.count == 500 {
-            return try await downloadBusRoutes(downloadedRoutes, skip: skip + 500)
-        } else {
-            return downloadedRoutes
-        }
+    /// - Returns: An array of all available ``BusRoute`` objects.
+    ///
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/invalidURL`` if the URL cannot be constructed.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
+    func downloadBusRoutes() async throws -> [BusRoute] {
+        try await downloadPaginatedData(
+            from: .busRoutes,
+            wrapperType: BusRoutes.self,
+            valueKeyPath: \.value
+        )
     }
-    
-    
     
     /// Downloads planned bus route information from the Land Transport API.
     ///
-    /// This method retrieves all available `PlannedBusRoute` records from the API in a single request.
+    /// This method retrieves all available ``PlannedBusRoute`` records from the API in a single request.
     ///
-    /// - Returns: An array of `PlannedBusRoute` objects representing planned bus routes.
-    /// - Throws: An error if the network request fails or the response data cannot be decoded.
+    /// - Returns: An array of ``PlannedBusRoute`` objects representing planned bus routes.
+    ///
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
     func downloadPlannedBusRoutes() async throws -> [PlannedBusRoute] {
-        var urlRequest = URLRequest(url: LandTransportEndpoints.plannedBusRoute.url)
-        urlRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        let decodedData = try JSONDecoder().decode(PlannedBusRoutes.self, from: data)
-        return decodedData.value
+        let request = try authenticatedRequest(for: LandTransportEndpoints.plannedBusRoute.url)
+        let response = try await performRequest(request, decoding: PlannedBusRoutes.self)
+        return response.value
     }
-    
 }

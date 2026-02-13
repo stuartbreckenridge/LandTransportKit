@@ -17,9 +17,15 @@ public extension LandTransportAPI {
     ///   - lat: The latitude coordinate for the center of the search area.
     ///   - long: The longitude coordinate for the center of the search area.
     ///   - radius: The search radius in kilometers (default is 0.5 km).
-    /// - Returns: An array of `BikePark` objects found within the specified area.
-    /// - Throws: An error if the network request fails or if decoding the response fails.
-    /// - Note: The API key must be set for authentication, or the request will fail.
+    ///
+    /// - Returns: An array of ``BikePark`` objects found within the specified area.
+    ///
+    /// - Throws: ``LandTransportAPIError/noAPIKey`` if the API key is not configured.
+    /// - Throws: ``LandTransportAPIError/invalidURL`` if the URL cannot be constructed.
+    /// - Throws: ``LandTransportAPIError/rateLimited`` if the request is rate limited.
+    /// - Throws: ``LandTransportAPIError/networkError(underlying:)`` if a network error occurs.
+    /// - Throws: ``LandTransportAPIError/decodingFailed(underlying:)`` if the response cannot be decoded.
+    ///
     /// - Availability: Async only.
     func getBikeParks(near lat: Double, long: Double, radius: Double = 0.5) async throws -> [BikePark] {
         var urlComponents = URLComponents(url: LandTransportEndpoints.bikeParking.url, resolvingAgainstBaseURL: false)
@@ -29,16 +35,12 @@ public extension LandTransportAPI {
             URLQueryItem(name: "Dist", value: String(radius))
         ]
         
-        var urlRequest = URLRequest(url: urlComponents!.url!)
-        urlRequest.addValue(apiKey ?? "", forHTTPHeaderField: "AccountKey")
+        guard let url = urlComponents?.url else {
+            throw LandTransportAPIError.invalidURL
+        }
         
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        let decodedData = try JSONDecoder().decode(BikeParking.self, from: data)
-        return decodedData.value
+        let request = try authenticatedRequest(for: url)
+        let response = try await performRequest(request, decoding: BikeParking.self)
+        return response.value
     }
-    
-    
-    
-    
-    
 }
