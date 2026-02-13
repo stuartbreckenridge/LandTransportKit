@@ -24,7 +24,7 @@ Add LandTransportKit to your project using Swift Package Manager:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/your-repo/LandTransportKit.git", from: "1.0.0")
+    .package(url: "https://github.com/stuartbreckenridge/LandTransportKit.git", from: "0.9.0")
 ]
 ```
 
