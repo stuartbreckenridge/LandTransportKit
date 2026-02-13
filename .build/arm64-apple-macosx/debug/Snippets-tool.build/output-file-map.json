@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/Snippets-tool.build/master.swiftdeps"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/checkouts/swift-docc-plugin/Sources/Snippets/Model/Snippet.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/Snippets-tool.build/Snippet.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/Snippets-tool.build/Snippet.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/Snippets-tool.build/Snippet~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/Snippets-tool.build/Snippet.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/Snippets-tool.build/Snippet.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/checkouts/swift-docc-plugin/Sources/Snippets/Parsing/SnippetParser.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/Snippets-tool.build/SnippetParser.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/Snippets-tool.build/SnippetParser.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/Snippets-tool.build/SnippetParser~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/Snippets-tool.build/SnippetParser.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/Snippets-tool.build/SnippetParser.dia"
+  }
+}

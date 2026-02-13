@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKitTests.build/master.swiftdeps"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Tests/LandTransportKitTests/LandTransportKitTests.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKitTests.build/LandTransportKitTests.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKitTests.build/LandTransportKitTests.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKitTests.build/LandTransportKitTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKitTests.build/LandTransportKitTests.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKitTests.build/LandTransportKitTests.dia"
+  }
+}

@@ -1,0 +1,3 @@
+module LandTransportKit {
+    header "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/include/LandTransportKit-Swift.h"
+}

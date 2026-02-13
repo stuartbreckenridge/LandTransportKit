@@ -1,0 +1,313 @@
+{
+  "": {
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/master.swiftdeps"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+BikeParking.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BikeParking.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BikeParking.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BikeParking~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BikeParking.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BikeParking.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+BusArrivals.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusArrivals.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusArrivals.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusArrivals~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusArrivals.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusArrivals.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+BusRoutes.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusRoutes.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusRoutes.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusRoutes~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusRoutes.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusRoutes.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+BusServices.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusServices.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusServices.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusServices~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusServices.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusServices.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+BusStops.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusStops.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusStops.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusStops~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusStops.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+BusStops.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+CarParkAvailability.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+CarParkAvailability.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+CarParkAvailability.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+CarParkAvailability~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+CarParkAvailability.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+CarParkAvailability.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+EstimatedTravelTime.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+EstimatedTravelTime.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+EstimatedTravelTime.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+EstimatedTravelTime~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+EstimatedTravelTime.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+EstimatedTravelTime.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+FacilitiesMaintenance.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+FacilitiesMaintenance.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+FacilitiesMaintenance.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+FacilitiesMaintenance~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+FacilitiesMaintenance.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+FacilitiesMaintenance.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+FaultyTrafficLights.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+FaultyTrafficLights.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+FaultyTrafficLights.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+FaultyTrafficLights~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+FaultyTrafficLights.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+FaultyTrafficLights.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+PassengerVolumes.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+PassengerVolumes.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+PassengerVolumes.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+PassengerVolumes~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+PassengerVolumes.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+PassengerVolumes.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+RoadEvents.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+RoadEvents.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+RoadEvents.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+RoadEvents~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+RoadEvents.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+RoadEvents.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+StationCrowdDensity.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+StationCrowdDensity.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+StationCrowdDensity.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+StationCrowdDensity~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+StationCrowdDensity.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+StationCrowdDensity.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+TaxiAvailability.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TaxiAvailability.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TaxiAvailability.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TaxiAvailability~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TaxiAvailability.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TaxiAvailability.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+TaxiStands.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TaxiStands.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TaxiStands.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TaxiStands~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TaxiStands.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TaxiStands.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+TrafficFlow.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficFlow.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficFlow.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficFlow~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficFlow.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficFlow.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+TrafficImages.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficImages.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficImages.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficImages~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficImages.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficImages.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+TrafficIncidents.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficIncidents.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficIncidents.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficIncidents~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficIncidents.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficIncidents.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+TrafficSpeedBands.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficSpeedBands.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficSpeedBands.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficSpeedBands~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficSpeedBands.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrafficSpeedBands.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+TrainServiceAlerts.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrainServiceAlerts.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrainServiceAlerts.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrainServiceAlerts~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrainServiceAlerts.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+TrainServiceAlerts.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+VMS.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+VMS.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+VMS.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+VMS~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+VMS.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI+VMS.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportAPI.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportEndpoints.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportEndpoints.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportEndpoints.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportEndpoints~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportEndpoints.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/LandTransportEndpoints.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Bike Parking/BikeParking.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BikeParking.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BikeParking.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BikeParking~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BikeParking.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BikeParking.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Bus Arrivals/BusArrivals.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusArrivals.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusArrivals.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusArrivals~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusArrivals.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusArrivals.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Bus Arrivals/NextBus.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/NextBus.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/NextBus.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/NextBus~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/NextBus.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/NextBus.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Bus Arrivals/Services.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/Services.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/Services.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/Services~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/Services.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/Services.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Bus Route/BusRoute.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusRoute.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusRoute.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusRoute~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusRoute.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusRoute.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Bus Services/BusService.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusService.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusService.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusService~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusService.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusService.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Bus Stops/BusStops.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusStops.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusStops.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusStops~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusStops.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/BusStops.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Car Park Availability/CarParkAvailability.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/CarParkAvailability.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/CarParkAvailability.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/CarParkAvailability~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/CarParkAvailability.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/CarParkAvailability.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Estimated Travel Time/EstimatedTravelTime.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/EstimatedTravelTime.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/EstimatedTravelTime.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/EstimatedTravelTime~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/EstimatedTravelTime.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/EstimatedTravelTime.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Facilities Maintenance/FacilitiesMaintenance.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/FacilitiesMaintenance.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/FacilitiesMaintenance.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/FacilitiesMaintenance~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/FacilitiesMaintenance.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/FacilitiesMaintenance.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Faulty Traffic Lights/FaultyTrafficLights.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/FaultyTrafficLights.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/FaultyTrafficLights.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/FaultyTrafficLights~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/FaultyTrafficLights.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/FaultyTrafficLights.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Passenger Volumes/PassengerVolume.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/PassengerVolume.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/PassengerVolume.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/PassengerVolume~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/PassengerVolume.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/PassengerVolume.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Road Events/RoadEvents.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/RoadEvents.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/RoadEvents.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/RoadEvents~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/RoadEvents.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/RoadEvents.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Station Crowd Density/StationCrowdDensity.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/StationCrowdDensity.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/StationCrowdDensity.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/StationCrowdDensity~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/StationCrowdDensity.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/StationCrowdDensity.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Taxi Availability/TaxiAvailability.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TaxiAvailability.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TaxiAvailability.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TaxiAvailability~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TaxiAvailability.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TaxiAvailability.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Taxi Stands/TaxiStands.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TaxiStands.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TaxiStands.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TaxiStands~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TaxiStands.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TaxiStands.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Traffic Flow/TrafficFlow.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficFlow.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficFlow.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficFlow~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficFlow.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficFlow.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Traffic Images/TrafficImages.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficImages.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficImages.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficImages~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficImages.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficImages.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Traffic Incidents/TrafficIncidents.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficIncidents.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficIncidents.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficIncidents~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficIncidents.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficIncidents.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Traffic Speed Bands/TrafficSpeedBands.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficSpeedBands.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficSpeedBands.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficSpeedBands~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficSpeedBands.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrafficSpeedBands.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Train Service Alert/TrainServiceAlert.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrainServiceAlert.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrainServiceAlert.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrainServiceAlert~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrainServiceAlert.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/TrainServiceAlert.dia"
+  },
+  "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/VMS/VariableMessageServices.swift": {
+    "dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/VariableMessageServices.d",
+    "object": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/VariableMessageServices.swift.o",
+    "swiftmodule": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/VariableMessageServices~partial.swiftmodule",
+    "swift-dependencies": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/VariableMessageServices.swiftdeps",
+    "diagnostics": "/Users/stuart/Projects/ApplePlatforms/LandTransportKit/.build/arm64-apple-macosx/debug/LandTransportKit.build/VariableMessageServices.dia"
+  }
+}

@@ -1,7 +1,7 @@
 # Facilities & Other APIs
 
 @Metadata {
-    @PageColor(teal)
+    @PageColor(green)
 }
 
 Access car park availability, bike parking, travel times, and more.

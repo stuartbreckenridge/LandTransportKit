@@ -1,0 +1,44 @@
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+BikeParking.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+BusArrivals.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+BusRoutes.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+BusServices.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+BusStops.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+CarParkAvailability.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+EstimatedTravelTime.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+FacilitiesMaintenance.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+FaultyTrafficLights.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+PassengerVolumes.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+RoadEvents.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+StationCrowdDensity.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+TaxiAvailability.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+TaxiStands.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+TrafficFlow.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+TrafficImages.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+TrafficIncidents.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+TrafficSpeedBands.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+TrainServiceAlerts.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI+VMS.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportAPI.swift
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/API/LandTransportEndpoints.swift
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Bike Parking/BikeParking.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Bus Arrivals/BusArrivals.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Bus Arrivals/NextBus.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Bus Arrivals/Services.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Bus Route/BusRoute.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Bus Services/BusService.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Bus Stops/BusStops.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Car Park Availability/CarParkAvailability.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Estimated Travel Time/EstimatedTravelTime.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Facilities Maintenance/FacilitiesMaintenance.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Faulty Traffic Lights/FaultyTrafficLights.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Passenger Volumes/PassengerVolume.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Road Events/RoadEvents.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Station Crowd Density/StationCrowdDensity.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Taxi Availability/TaxiAvailability.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Taxi Stands/TaxiStands.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Traffic Flow/TrafficFlow.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Traffic Images/TrafficImages.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Traffic Incidents/TrafficIncidents.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Traffic Speed Bands/TrafficSpeedBands.swift'
+'/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/Train Service Alert/TrainServiceAlert.swift'
+/Users/stuart/Projects/ApplePlatforms/LandTransportKit/Sources/LandTransportKit/Models/VMS/VariableMessageServices.swift
